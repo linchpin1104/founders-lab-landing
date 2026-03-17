@@ -130,11 +130,11 @@ const FoundersLabLanding = () => {
   ];
 
   const targets = [
-    { title: "퇴사를 고민 중인 직장인", desc: "언젠간 내 사업을 하고 싶지만, 지금 당장은 확신이 없는 분. 퇴사 전에 검증해보고 싶은 분." },
-    { title: "아이디어는 있지만 실행이 막막한 분", desc: "머릿속에 아이템은 있는데, 어디서부터 시작해야 할지 모르는 분. 혼자 검색하다 지친 분." },
-    { title: "부업 경험은 있지만 확장이 안 되는 분", desc: "스마트스토어, 클래스101, 프리랜서 등 해봤지만 '내 사업'으로 키우는 방법을 모르는 분." },
-    { title: "같은 고민을 나눌 동료가 필요한 분", desc: "주변에 창업 준비하는 사람이 없어서 외로운 분. 서로 자극받고 밀어줄 팀이 필요한 분." },
-    { title: "AI를 활용해 효율적으로 준비하고 싶은 분", desc: "본업이 바쁜데, 창업 준비까지 하려면 시간이 부족한 분. AI로 시간을 아끼고 싶은 분." }
+    { title: "퇴사를 고민 중인 직장인", desc: "언젠간 내 사업을 하고 싶지만, 지금 당장은 확신이 없는 분.\n퇴사 전에 검증해보고 싶은 분." },
+    { title: "아이디어는 있지만 실행이 막막한 분", desc: "머릿속에 아이템은 있는데, 어디서부터 시작해야 할지 모르는 분.\n혼자 검색하다 지친 분." },
+    { title: "부업 경험은 있지만 확장이 안 되는 분", desc: "스마트스토어, 클래스101, 프리랜서 등 해봤지만\n'내 사업'으로 키우는 방법을 모르는 분." },
+    { title: "같은 고민을 나눌 동료가 필요한 분", desc: "주변에 창업 준비하는 사람이 없어서 외로운 분.\n서로 자극받고 밀어줄 팀이 필요한 분." },
+    { title: "AI를 활용해 효율적으로 준비하고 싶은 분", desc: "본업이 바쁜데, 창업 준비까지 하려면 시간이 부족한 분.\nAI로 시간을 아끼고 싶은 분." },
   ];
 
   const phase1 = [
@@ -319,7 +319,7 @@ const FoundersLabLanding = () => {
                   <span className="flex-shrink-0" style={{ color: '#FF6B35' }}>✓</span>
                   <div>
                     <span className="font-bold text-sm sm:text-base" style={{ color: '#1a1a1a' }}>{item.title}</span>
-                    <p className="text-xs sm:text-sm mt-0.5 sm:mt-1" style={{ color: '#666' }}>{item.desc}</p>
+                    <p className="text-xs sm:text-sm mt-0.5 sm:mt-1" style={{ color: '#666', whiteSpace: 'pre-line' }}>{item.desc}</p>
                   </div>
                 </div>
               ))}
