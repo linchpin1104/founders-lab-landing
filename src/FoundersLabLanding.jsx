@@ -66,9 +66,6 @@ const FoundersLabLanding = () => {
     setIsSubmitting(true);
     
     try {
-      // ⚠️ Google Apps Script 배포 URL
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4pxA6_V7_Ugz7Cei0u__egrzo7DAqu1WnVMWTp6Oyy8l6tRQtyEcIt7_GVKvojTXZKQ/exec';
-      
       const submitData = {
         timestamp: new Date().toISOString(),
         name: formData.name,
@@ -81,18 +78,15 @@ const FoundersLabLanding = () => {
         goal: formData.goal,
         heardFrom: formData.heardFrom || ''
       };
-      
-      // Google Apps Script로 데이터 전송
-      await fetch(GOOGLE_SCRIPT_URL, {
+
+      const response = await fetch('/api/submit', {
         method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'text/plain',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(submitData)
       });
-      
-      // no-cors 모드에서는 응답을 읽을 수 없으므로 성공으로 처리
+
+      if (!response.ok) throw new Error('서버 오류');
+
       setIsSubmitting(false);
       setSubmitSuccess(true);
       
