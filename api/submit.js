@@ -3,8 +3,9 @@ import crypto from 'crypto';
 const SPREADSHEET_ID = '1RlL4OR5oLQuCqaAVthlu9JG6tIVTvpR8yuvGx4xW26o';
 
 async function getGoogleAccessToken() {
-  const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
-  const privateKey = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n');
+  const sa = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
+  const clientEmail = sa.client_email;
+  const privateKey = sa.private_key;
 
   const now = Math.floor(Date.now() / 1000);
   const header = Buffer.from(JSON.stringify({ alg: 'RS256', typ: 'JWT' })).toString('base64url');
