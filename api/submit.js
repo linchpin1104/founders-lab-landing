@@ -1,49 +1,86 @@
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4pxA6_V7_Ugz7Cei0u__egrzo7DAqu1WnVMWTp6Oyy8l6tRQtyEcIt7_GVKvojTXZKQ/exec';
+import crypto from 'crypto';
+
+const SPREADSHEET_ID = '1RlL4OR5oLQuCqaAVthlu9JG6tIVTvpR8yuvGx4xW26o';
+
+async function getGoogleAccessToken() {
+  const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
+  const privateKey = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n');
+
+  const now = Math.floor(Date.now() / 1000);
+  const header = Buffer.from(JSON.stringify({ alg: 'RS256', typ: 'JWT' })).toString('base64url');
+  const claim = Buffer.from(JSON.stringify({
+    iss: clientEmail,
+    scope: 'https://www.googleapis.com/auth/spreadsheets',
+    aud: 'https://oauth2.googleapis.com/token',
+    exp: now + 3600,
+    iat: now,
+  })).toString('base64url');
+
+  const toSign = `${header}.${claim}`;
+  const sign = crypto.createSign('RSA-SHA256');
+  sign.update(toSign);
+  const signature = sign.sign(privateKey, 'base64url');
+
+  const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+      assertion: `${toSign}.${signature}`,
+    }),
+  });
+
+  const json = await tokenRes.json();
+  if (!json.access_token) throw new Error(`Token error: ${JSON.stringify(json)}`);
+  return json.access_token;
+}
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    const body = JSON.stringify(req.body);
+    const data = req.body;
 
-    // 1차 요청: redirect: 'manual'로 302 응답의 Location 헤더를 가져옴
-    const firstResponse = await fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body,
-      redirect: 'manual',
-    });
+    const koreaTime = new Date(data.timestamp).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
 
-    let gasResponse;
+    const row = [
+      koreaTime,
+      data.name        || '',
+      data.phone       || '',
+      data.email       || '',
+      data.job         || '',
+      data.years       || '',
+      data.hasIdea     || '',
+      data.ideaDesc    || '',
+      data.goal        || '',
+      data.heardFrom   || '',
+    ];
 
-    if (firstResponse.status === 301 || firstResponse.status === 302) {
-      // 리다이렉트 URL로 POST를 다시 전송 (body 유지)
-      const redirectUrl = firstResponse.headers.get('location');
-      gasResponse = await fetch(redirectUrl, {
+    const accessToken = await getGoogleAccessToken();
+
+    const sheetsRes = await fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/A:J:append?valueInputOption=USER_ENTERED`,
+      {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body,
-      });
-    } else {
-      gasResponse = firstResponse;
-    }
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ values: [row] }),
+      }
+    );
 
-    const text = await gasResponse.text();
-    console.log('Google Apps Script response:', text);
+    const sheetsData = await sheetsRes.json();
+    if (!sheetsRes.ok) throw new Error(JSON.stringify(sheetsData));
 
-    return res.status(200).json({ result: 'success', gas: text });
+    return res.status(200).json({ result: 'success' });
   } catch (error) {
-    console.error('Submit error:', error);
+    console.error('Submit error:', error.message);
     return res.status(500).json({ result: 'error', message: error.message });
   }
 }
