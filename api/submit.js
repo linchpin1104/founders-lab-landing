@@ -14,14 +14,34 @@ export default async function handler(req, res) {
   }
 
   try {
-    const response = await fetch(GOOGLE_SCRIPT_URL, {
+    const body = JSON.stringify(req.body);
+
+    // 1차 요청: redirect: 'manual'로 302 응답의 Location 헤더를 가져옴
+    const firstResponse = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(req.body),
-      redirect: 'follow',
+      body,
+      redirect: 'manual',
     });
 
-    return res.status(200).json({ result: 'success' });
+    let gasResponse;
+
+    if (firstResponse.status === 301 || firstResponse.status === 302) {
+      // 리다이렉트 URL로 POST를 다시 전송 (body 유지)
+      const redirectUrl = firstResponse.headers.get('location');
+      gasResponse = await fetch(redirectUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body,
+      });
+    } else {
+      gasResponse = firstResponse;
+    }
+
+    const text = await gasResponse.text();
+    console.log('Google Apps Script response:', text);
+
+    return res.status(200).json({ result: 'success', gas: text });
   } catch (error) {
     console.error('Submit error:', error);
     return res.status(500).json({ result: 'error', message: error.message });
