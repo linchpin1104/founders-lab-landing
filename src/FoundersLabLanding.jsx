@@ -186,7 +186,7 @@ const FoundersLabLanding = () => {
   const labelStyle = { display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#333' };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#FAF8F5', fontFamily: "'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif" }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#FAF8F5', fontFamily: "'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif", overflowX: 'hidden', wordBreak: 'keep-all' }}>
       
       {/* D-Day Banner */}
       <div className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: '#1a1a1a' }}>
@@ -200,12 +200,12 @@ const FoundersLabLanding = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-12" style={{ backgroundColor: '#FDF6E9' }}>
+      <section className="relative overflow-hidden pt-14" style={{ backgroundColor: '#FDF6E9' }}>
         <div className="max-w-4xl mx-auto px-5 py-16 sm:py-24 text-center relative z-10">
           <div className="absolute top-10 left-4 sm:left-10 w-16 sm:w-20 h-16 sm:h-20 rounded-full opacity-20" style={{ backgroundColor: '#FF6B35' }}></div>
           <div className="absolute bottom-16 right-4 sm:right-16 w-24 sm:w-32 h-24 sm:h-32 rounded-full opacity-10" style={{ backgroundColor: '#FF6B35' }}></div>
           
-          <div className="inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-6 sm:mb-8" style={{ backgroundColor: '#1a1a1a', color: '#fff' }}>
+          <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-6 sm:mb-8" style={{ backgroundColor: '#1a1a1a', color: '#fff' }}>
             Founders Lab 1기 모집 중
           </div>
           
@@ -364,13 +364,13 @@ const FoundersLabLanding = () => {
 
             {[
               { phase: "Phase 1", title: "비즈니스 로직 구조화 (1-4주)", desc: "\"내 아이디어가 정말 돈이 될까?\"를 검증합니다.", data: phase1, result: "이 단계를 거치면 \"월 얼마를 벌어야 퇴사할 수 있는지\", \"그러려면 몇 명에게 팔아야 하는지\" 숫자로 알게 됩니다." },
-              { phase: "Phase 2", title: "실행 인프라 구축 및 시장 반응 확인 (5-8주)", desc: "\"사람들이 정말 관심을 가질까?\"를 검증합니다.", data: phase2, result: "이 단계를 거치면 \"몇 명이 관심을 보이는지\", \"어떤 메시지에 반응하는지\" 데이터로 확인합니다." },
+              { phase: "Phase 2", title: "실행 인프라 구축 · 시장 반응 확인 (5-8주)", desc: "\"사람들이 정말 관심을 가질까?\"를 검증합니다.", data: phase2, result: "이 단계를 거치면 \"몇 명이 관심을 보이는지\", \"어떤 메시지에 반응하는지\" 데이터로 확인합니다." },
               { phase: "Phase 3", title: "수익 로직 업그레이드 (9-12주)", desc: "\"실제로 돈을 낼까?\"를 검증합니다.", data: phase3, result: "이 단계를 거치면 \"실제 유료 고객\" 또는 \"왜 안 되는지에 대한 구체적인 피드백\"을 얻습니다." }
             ].map((p, pi) => (
               <div key={pi} className="mb-8 sm:mb-10">
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                  <span className="px-2.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-bold" style={{ backgroundColor: '#FF6B35', color: '#fff' }}>{p.phase}</span>
-                  <span className="font-bold text-base sm:text-lg" style={{ color: '#1a1a1a' }}>{p.title}</span>
+                  <span className="flex-shrink-0 px-2.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-bold" style={{ backgroundColor: '#FF6B35', color: '#fff' }}>{p.phase}</span>
+                  <span className="font-bold text-sm sm:text-lg leading-snug" style={{ color: '#1a1a1a' }}>{p.title}</span>
                 </div>
                 <p className="text-xs sm:text-sm mb-3 sm:mb-4 italic" style={{ color: '#666' }}>{p.desc}</p>
 
@@ -548,7 +548,7 @@ const FoundersLabLanding = () => {
                 <li>• Bain & Company 이사 출신 (전략 컨설팅)</li>
                 <li>• 매일유업 전략기획실, 삼성전자 근무</li>
                 <li>• 직접 창업 → 누적 50억 자금 조달</li>
-                <li>• 이화여대, 서울산업진흥원, KT, 현대차그룹 창업 프로그램 운영</li>
+                <li>• 이화여대, 서울산업진흥원, KT,<br className="sm:hidden" /> 현대차그룹 창업 프로그램 운영</li>
                 <li>• 연세대 경영학과 / 시카고대 Booth MBA</li>
               </ul>
             </div>
@@ -574,7 +574,7 @@ const FoundersLabLanding = () => {
           <div className="max-w-xl mx-auto p-5 sm:p-8 rounded-2xl" style={{ backgroundColor: '#FDF6E9', border: '2px solid #F0E6D3' }}>
             <div className="grid grid-cols-2 gap-4 mb-6 sm:mb-8">
               <div><p className="text-xs sm:text-sm" style={{ color: '#666' }}>기간</p><p className="font-medium text-sm sm:text-base" style={{ color: '#1a1a1a' }}>12주 (4월 1일 시작)</p></div>
-              <div><p className="text-xs sm:text-sm" style={{ color: '#666' }}>형태</p><p className="font-medium text-sm sm:text-base" style={{ color: '#1a1a1a' }}>온라인 + 월 1회 오프라인</p></div>
+              <div><p className="text-xs sm:text-sm" style={{ color: '#666' }}>형태</p><p className="font-medium text-sm sm:text-base leading-snug" style={{ color: '#1a1a1a' }}>온라인<br className="sm:hidden" /> + 월 1회 오프라인</p></div>
             </div>
             
             {/* 정상가/1기 특별가 */}
@@ -890,7 +890,7 @@ const FoundersLabLanding = () => {
       <footer className="py-8 sm:py-12 px-5 sm:px-6" style={{ backgroundColor: '#1a1a1a' }}>
         <div className="max-w-4xl mx-auto">
           <p className="text-xs sm:text-sm mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>쉬벤처스 | 대표: 하이수</p>
-          <p className="text-xs mb-3 sm:mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>사업자등록번호: 000-00-00000 | 통신판매업신고: 2024-서울강남-0000</p>
+          <p className="text-xs mb-3 sm:mb-4" style={{ color: 'rgba(255,255,255,0.3)', wordBreak: 'keep-all' }}>사업자등록번호: 000-00-00000<br className="sm:hidden" /> | 통신판매업신고: 2024-서울강남-0000</p>
           <button onClick={() => setShowPrivacy(true)} className="text-xs underline" style={{ color: 'rgba(255,255,255,0.4)', background: 'none', border: 'none', cursor: 'pointer' }}>개인정보처리방침</button>
         </div>
       </footer>
