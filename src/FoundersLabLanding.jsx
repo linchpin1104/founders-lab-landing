@@ -13,7 +13,7 @@ const FoundersLabLanding = () => {
     hasIdea: '',
     ideaDesc: '',
     goal: '',
-    heardFrom: '',
+    heardFrom: [],
     agreePrivacy: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -42,10 +42,19 @@ const FoundersLabLanding = () => {
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
+    if (name === 'heardFrom') {
+      setFormData(prev => ({
+        ...prev,
+        heardFrom: checked
+          ? [...prev.heardFrom, value]
+          : prev.heardFrom.filter(v => v !== value)
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: type === 'checkbox' ? checked : value
+      }));
+    }
   };
 
   // 구글 시트 연동 (Google Apps Script Web App URL 필요)
@@ -76,7 +85,7 @@ const FoundersLabLanding = () => {
         hasIdea: formData.hasIdea,
         ideaDesc: formData.ideaDesc || '',
         goal: formData.goal,
-        heardFrom: formData.heardFrom || ''
+        heardFrom: formData.heardFrom.join(', ') || ''
       };
 
       const response = await fetch('/api/submit', {
@@ -652,15 +661,30 @@ const FoundersLabLanding = () => {
                       </select>
                     </div>
                     <div>
-                      <label style={labelStyle}>프로그램을 어떻게 알게 되셨나요?</label>
-                      <select name="heardFrom" value={formData.heardFrom} onChange={handleInputChange} style={inputStyle}>
-                        <option value="">선택해주세요</option>
-                        <option value="instagram">인스타그램</option>
-                        <option value="linkedin">링크드인</option>
-                        <option value="blog">블로그/검색</option>
-                        <option value="referral">지인 추천</option>
-                        <option value="other">기타</option>
-                      </select>
+                      <label style={labelStyle}>프로그램을 어떻게 알게 되셨나요? <span style={{ fontWeight: 400, color: '#999' }}>(복수 선택 가능)</span></label>
+                      <div className="flex flex-wrap gap-x-5 gap-y-3 mt-2">
+                        {[
+                          { value: 'instagram', label: '인스타그램' },
+                          { value: 'threads', label: '스레드' },
+                          { value: 'openchat', label: '오픈카톡방' },
+                          { value: 'linkedin', label: '링크드인' },
+                          { value: 'blog', label: '블로그/검색' },
+                          { value: 'referral', label: '지인 추천' },
+                          { value: 'other', label: '기타' },
+                        ].map((opt) => (
+                          <label key={opt.value} className="flex items-center gap-2 cursor-pointer">
+                            <input
+                              type="checkbox"
+                              name="heardFrom"
+                              value={opt.value}
+                              checked={formData.heardFrom.includes(opt.value)}
+                              onChange={handleInputChange}
+                              style={{ width: '18px', height: '18px', accentColor: '#FF6B35' }}
+                            />
+                            <span className="text-sm" style={{ color: '#333' }}>{opt.label}</span>
+                          </label>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
