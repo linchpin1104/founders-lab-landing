@@ -85,9 +85,9 @@ const FoundersLabLanding = () => {
       // Google Apps Script로 데이터 전송
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors', // CORS 우회
+        mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'text/plain',
         },
         body: JSON.stringify(submitData)
       });
