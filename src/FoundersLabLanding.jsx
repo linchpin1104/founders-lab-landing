@@ -88,7 +88,7 @@ const FoundersLabLanding = () => {
         heardFrom: formData.heardFrom.join(', ') || ''
       };
 
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4pxA6_V7_Ugz7Cei0u__egrzo7DAqu1WnVMWTp6Oyy8l6tRQtyEcIt7_GVKvojTXZKQ/exec';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzJ0MGexwOLsx2Jg5QnS1a2jxYEykoJOGJ_0ESLUF5VQQAbgTLjX1KOkgYbeQ1zApAh/exec';
       const params = new URLSearchParams(submitData);
       await fetch(`${GOOGLE_SCRIPT_URL}?${params.toString()}`, {
         method: 'GET',
@@ -138,24 +138,24 @@ const FoundersLabLanding = () => {
   ];
 
   const phase1 = [
-    ["1주", "아이디어 구체화 + 경쟁사 분석", "아이템 캔버스 1장"],
-    ["2주", "타겟 고객 정의 + 인터뷰 5명", "고객 인터뷰 노트"],
-    ["3주", "수익 모델 설계 + 가격 책정", "수익 구조도"],
-    ["4주", "퇴사계산기 시뮬레이션", "손익분기점 시트"]
+    ["1주 (4/5~)", "문제 정의", "비즈니스 블루프린트 (수익방정식 및 로직트리)", "🎙 4월 5일(일) 오후 8시"],
+    ["2주 (4/12~)", "고객 검증", "잠재고객 5인 딥인터뷰 결과 및 페인포인트 분석 리포트", ""],
+    ["3주 (4/19~)", "가치 제안", "비즈니스 모델 캔버스", "🎙 4월 19일(일) 오후 8시"],
+    ["4주 (4/26~)", "재무 설계", "퇴사 목표 대시보드", "📋 온라인 체크업 1차"],
   ];
   
   const phase2 = [
-    ["5주", "AI 직원 세팅 (마케팅/CS 자동화)", "AI 프롬프트 시스템"],
-    ["6주", "MVP 랜딩페이지 제작", "랜딩페이지 URL"],
-    ["7주", "SNS 콘텐츠 발행 + 트래픽 테스트", "유입 데이터"],
-    ["8주", "리드 수집 + 관심 고객 확보", "잠재 고객 리스트"]
+    ["5주 (5/3~)", "AI 부서 세팅", "부서별 가상 조직도 및 1호 AI직원", "🎙 5월 3일(일) 오후 8시"],
+    ["6주 (5/10~)", "Dirty MVP 런칭", "결제 링크 포함된 Dirty MVP", ""],
+    ["7주 (5/17~)", "마케팅 엔진 가동", "콘텐츠 캘린더 및 채널별 배포 실행안", "🎙 5월 17일(일) 오후 8시"],
+    ["8주 (5/24~)", "중간 체크업", "유입-클릭-전환 데이터 취합 및 병목 구간 분석 보고서", "📋 온라인 체크업 2차"],
   ];
   
   const phase3 = [
-    ["9주", "세일즈 페이지 고도화 + 결제 연동", "결제 가능 페이지"],
-    ["10주", "유료 전환 시도 + 세일즈 실습", "첫 매출 or 거절 피드백"],
-    ["11주", "피드백 기반 개선 + 재시도", "개선된 오퍼"],
-    ["12주", "최종 판정 + 데모데이 발표", "퇴사 판정 리포트"]
+    ["9주 (5/31~)", "고전환 세일즈 퍼널 최적화", "고도화 상세페이지 및 CX자동화 워크플로우", "🎙 5월 31일(일) 오후 8시"],
+    ["10주 (6/7~)", "수익 실현 및 첫 매출 확보", "유료 결제 또는 유효 리드 DB", ""],
+    ["11주 (6/14~)", "경제성 평가", "실제 집행 데이터 기반 수익성 검증 및 퇴사 적합성 최종 평가", ""],
+    ["12주 (6/21~)", "최종 판정", "90일 성과 및 향후 로드맵 포함 3분 피치 덱", "🎉 파운더스 나잇 (데모데이)"],
   ];
 
   const tools = [
@@ -341,12 +341,30 @@ const FoundersLabLanding = () => {
               <span className="text-2xl sm:text-3xl font-bold" style={{ color: '#FF6B35' }}>하나.</span>
               <h3 className="text-xl sm:text-2xl font-bold" style={{ color: '#1a1a1a' }}>12주 로드맵을 따라 실행합니다.</h3>
             </div>
-            <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: '#555' }}>혼자 하면 "뭘 해야 하지?"에서 멈춥니다. 검증된 순서대로, 한 주씩 따라오면 됩니다.</p>
+            <p className="text-base sm:text-lg mb-3 sm:mb-4" style={{ color: '#555' }}>혼자 하면 "뭘 해야 하지?"에서 멈춥니다. 검증된 순서대로, 한 주씩 따라오면 됩니다.</p>
+
+            {/* 온라인 라이브 강의 안내 */}
+            <div className="flex flex-wrap items-start gap-3 p-4 sm:p-5 rounded-xl mb-8 sm:mb-10" style={{ backgroundColor: '#FDF6E9', border: '1px solid #F0E6D3' }}>
+              <span className="text-lg">🎙</span>
+              <div>
+                <p className="text-sm sm:text-base font-bold mb-1" style={{ color: '#1a1a1a' }}>온라인 라이브 강의 — 총 6회 (매 2주 일요일 오후 8시)</p>
+                <p className="text-xs sm:text-sm" style={{ color: '#555' }}>4/5 · 4/19 · 5/3 · 5/17 · 5/31 · 12주차 파운더스 나잇</p>
+                <p className="text-xs mt-1.5" style={{ color: '#888' }}>📹 불참 시 녹화본을 제공해드립니다. · *강의 프로그램은 스터디 진행에 따라 변경될 수 있습니다.</p>
+              </div>
+            </div>
+
+            {/* Phase 0 */}
+            <div className="mb-6 sm:mb-8 p-4 sm:p-5 rounded-xl" style={{ backgroundColor: '#F5F5F5' }}>
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                <span className="px-2.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-bold" style={{ backgroundColor: '#1a1a1a', color: '#fff' }}>Phase 0</span>
+                <span className="font-bold text-sm sm:text-base" style={{ color: '#1a1a1a' }}>4월 1일 ~ 4월 4일 · 조편성 및 오리엔테이션</span>
+              </div>
+            </div>
 
             {[
-              { phase: "Phase 1", title: "구조 잡기 (1-4주)", desc: "\"내 아이디어가 정말 돈이 될까?\"를 검증합니다.", data: phase1, result: "이 단계를 거치면 \"월 얼마를 벌어야 퇴사할 수 있는지\", \"그러려면 몇 명에게 팔아야 하는지\" 숫자로 알게 됩니다." },
-              { phase: "Phase 2", title: "시장에 던지기 (5-8주)", desc: "\"사람들이 정말 관심을 가질까?\"를 검증합니다.", data: phase2, result: "이 단계를 거치면 \"몇 명이 관심을 보이는지\", \"어떤 메시지에 반응하는지\" 데이터로 확인합니다." },
-              { phase: "Phase 3", title: "매출 만들기 (9-12주)", desc: "\"실제로 돈을 낼까?\"를 검증합니다.", data: phase3, result: "이 단계를 거치면 \"실제 유료 고객\" 또는 \"왜 안 되는지에 대한 구체적인 피드백\"을 얻습니다." }
+              { phase: "Phase 1", title: "비즈니스 로직 구조화 (1-4주)", desc: "\"내 아이디어가 정말 돈이 될까?\"를 검증합니다.", data: phase1, result: "이 단계를 거치면 \"월 얼마를 벌어야 퇴사할 수 있는지\", \"그러려면 몇 명에게 팔아야 하는지\" 숫자로 알게 됩니다." },
+              { phase: "Phase 2", title: "실행 인프라 구축 및 시장 반응 확인 (5-8주)", desc: "\"사람들이 정말 관심을 가질까?\"를 검증합니다.", data: phase2, result: "이 단계를 거치면 \"몇 명이 관심을 보이는지\", \"어떤 메시지에 반응하는지\" 데이터로 확인합니다." },
+              { phase: "Phase 3", title: "수익 로직 업그레이드 (9-12주)", desc: "\"실제로 돈을 낼까?\"를 검증합니다.", data: phase3, result: "이 단계를 거치면 \"실제 유료 고객\" 또는 \"왜 안 되는지에 대한 구체적인 피드백\"을 얻습니다." }
             ].map((p, pi) => (
               <div key={pi} className="mb-8 sm:mb-10">
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
@@ -354,25 +372,42 @@ const FoundersLabLanding = () => {
                   <span className="font-bold text-base sm:text-lg" style={{ color: '#1a1a1a' }}>{p.title}</span>
                 </div>
                 <p className="text-xs sm:text-sm mb-3 sm:mb-4 italic" style={{ color: '#666' }}>{p.desc}</p>
-                
+
                 {/* 모바일용 카드 뷰 */}
                 <div className="block sm:hidden space-y-3">
                   {p.data.map((row, idx) => (
                     <div key={idx} className="p-4 rounded-lg" style={{ backgroundColor: '#F9F9F9' }}>
-                      <div className="flex justify-between items-start mb-2">
+                      <div className="flex justify-between items-start mb-1.5">
                         <span className="font-bold text-sm" style={{ color: '#FF6B35' }}>{row[0]}</span>
-                        <span className="text-xs px-2 py-0.5 rounded-full" style={{ backgroundColor: '#FDF6E9', color: '#666' }}>{row[2]}</span>
                       </div>
-                      <p className="text-sm" style={{ color: '#333' }}>{row[1]}</p>
+                      <p className="text-sm font-medium mb-1" style={{ color: '#333' }}>{row[1]}</p>
+                      <p className="text-xs mb-1.5" style={{ color: '#666' }}>산출물: {row[2]}</p>
+                      {row[3] && <p className="text-xs font-medium" style={{ color: '#FF6B35' }}>{row[3]}</p>}
                     </div>
                   ))}
                 </div>
-                
+
                 {/* 데스크탑용 테이블 */}
                 <div className="hidden sm:block overflow-x-auto">
                   <table className="w-full text-sm" style={{ borderCollapse: 'collapse' }}>
-                    <thead><tr style={{ backgroundColor: '#F5F5F5' }}><th className="p-3 text-left font-medium" style={{ color: '#666' }}>주차</th><th className="p-3 text-left font-medium" style={{ color: '#666' }}>핵심 활동</th><th className="p-3 text-left font-medium" style={{ color: '#666' }}>산출물</th></tr></thead>
-                    <tbody>{p.data.map((row, idx) => (<tr key={idx} style={{ borderBottom: '1px solid #eee' }}><td className="p-3" style={{ color: '#333' }}>{row[0]}</td><td className="p-3" style={{ color: '#333' }}>{row[1]}</td><td className="p-3" style={{ color: '#666' }}>{row[2]}</td></tr>))}</tbody>
+                    <thead>
+                      <tr style={{ backgroundColor: '#F5F5F5' }}>
+                        <th className="p-3 text-left font-medium" style={{ color: '#666' }}>주차</th>
+                        <th className="p-3 text-left font-medium" style={{ color: '#666' }}>핵심 활동</th>
+                        <th className="p-3 text-left font-medium" style={{ color: '#666' }}>산출물</th>
+                        <th className="p-3 text-left font-medium" style={{ color: '#666' }}>이벤트</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {p.data.map((row, idx) => (
+                        <tr key={idx} style={{ borderBottom: '1px solid #eee' }}>
+                          <td className="p-3" style={{ color: '#333' }}>{row[0]}</td>
+                          <td className="p-3" style={{ color: '#333' }}>{row[1]}</td>
+                          <td className="p-3 text-xs" style={{ color: '#666' }}>{row[2]}</td>
+                          <td className="p-3 text-xs font-medium whitespace-nowrap" style={{ color: row[3] ? '#FF6B35' : '#ccc' }}>{row[3] || '—'}</td>
+                        </tr>
+                      ))}
+                    </tbody>
                   </table>
                 </div>
                 <p className="text-xs sm:text-sm mt-3 sm:mt-4 p-3 sm:p-4 rounded-lg" style={{ backgroundColor: '#FDF6E9', color: '#555' }}>{p.result}</p>
