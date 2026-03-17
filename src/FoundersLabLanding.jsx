@@ -88,13 +88,12 @@ const FoundersLabLanding = () => {
         heardFrom: formData.heardFrom.join(', ') || ''
       };
 
-      const response = await fetch('/api/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(submitData)
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4pxA6_V7_Ugz7Cei0u__egrzo7DAqu1WnVMWTp6Oyy8l6tRQtyEcIt7_GVKvojTXZKQ/exec';
+      const params = new URLSearchParams(submitData);
+      await fetch(`${GOOGLE_SCRIPT_URL}?${params.toString()}`, {
+        method: 'GET',
+        mode: 'no-cors',
       });
-
-      if (!response.ok) throw new Error('서버 오류');
 
       setIsSubmitting(false);
       setSubmitSuccess(true);
