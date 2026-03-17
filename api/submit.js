@@ -30,7 +30,6 @@ export default async function handler(req, res) {
           '아이디어설명': { rich_text: [{ text: { content: d.ideaDesc  || '' } }] },
           '참가목표':   { rich_text: [{ text: { content: d.goal       || '' } }] },
           '유입경로':   { rich_text: [{ text: { content: d.heardFrom  || '' } }] },
-          '신청일시':   { rich_text: [{ text: { content: koreaTime              } }] },
         },
       }),
     });
