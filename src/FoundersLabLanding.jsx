@@ -20,18 +20,17 @@ const FoundersLabLanding = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
-  // D-day 계산 (마감일: 2026년 3월 28일 23:59:59)
+  // D-day 계산 (마감일: 2026년 6월 30일 23:59:59)
   useEffect(() => {
     const calculateDaysLeft = () => {
-      const deadline = new Date('2026-03-28T23:59:59+09:00'); // 한국시간 기준
+      const deadline = new Date('2026-06-30T23:59:59+09:00');
       const now = new Date();
       const diff = deadline - now;
       const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
       setDaysLeft(days > 0 ? days : 0);
     };
-    
+
     calculateDaysLeft();
-    // 매분 업데이트
     const interval = setInterval(calculateDaysLeft, 60000);
     return () => clearInterval(interval);
   }, []);
@@ -116,12 +115,12 @@ const FoundersLabLanding = () => {
   };
 
   const faqs = [
-    { q: "아직 아이디어가 없어도 참가할 수 있나요?", a: "가능합니다. 1주차에 아이디어를 정리하는 것부터 시작합니다. 완전히 백지 상태라면, 조원 프로젝트에 합류해서 다른 사람의 아이템을 함께 검증하는 것도 방법입니다. 그 과정에서 본인 아이템이 떠오르는 경우도 많습니다." },
-    { q: "직장 다니면서 병행할 수 있나요?", a: "주 3-5시간 정도면 충분합니다. 주간 과제 수행 2-3시간, 피어 세션 참여 1시간, 자료 학습 1시간(선택) 정도입니다. AI 자동화를 활용해 시간을 아끼는 방법도 함께 다룹니다. \"시간이 없어서\"가 아니라 \"효율적으로 쓰는 방법을 몰라서\"인 경우가 많습니다." },
-    { q: "환불 정책은 어떻게 되나요?", a: "시작 후 1주일 이내 100% 환불 가능합니다. 1주차 과제를 해보고, 맞지 않으면 전액 돌려드립니다. 1주일 이후에는 환불이 어렵습니다." },
-    { q: "오프라인 모임은 필수인가요?", a: "필수는 아닙니다. 온라인으로도 충분히 참여 가능합니다. 다만 네트워킹과 피드백 측면에서 오프라인 참석을 권장합니다. 서울 외 지역 거주자를 위해 온라인 참여 옵션도 제공합니다." },
-    { q: "기수 중간에 참여할 수 있나요?", a: "커리큘럼 특성상 중간 합류는 어렵습니다. 12주가 유기적으로 연결되어 있어서, 중간에 들어오면 따라가기 힘듭니다. 다음 기수 오픈 시 안내 신청을 해주세요." },
-    { q: "해외에서 참가해도 되나요?", a: "온라인 참여는 가능합니다. 피어 세션은 한국 시간 기준 저녁에 진행되므로, 시차가 맞으면 문제 없습니다. 오프라인 모임(파운더스 나잇)은 서울에서 진행됩니다." }
+    { q: "아직 아이디어가 없어도 참가할 수 있나요?", a: "가능합니다. 1주차 오프라인 인트로세션에서 \"내가 뭘 하려고 하는지\" 방향을 잡는 것부터 시작합니다. 1기 운영 경험상, 아이디어가 없는 상태에서 시작해도 인트로세션과 초반 과제를 통해 자연스럽게 정리되는 경우가 많았습니다." },
+    { q: "직장 다니면서 병행할 수 있나요?", a: "주 3-5시간 정도면 충분합니다. 2주에 1회 모더레이팅 세션 참여 + 사전 녹화 강의 시청 + 과제 수행 정도입니다. 1기 대비 세션 빈도를 줄이고, 자율 실행 시간을 늘렸기 때문에 직장인도 충분히 병행할 수 있습니다." },
+    { q: "환불 정책은 어떻게 되나요?", a: "시작 후 1주일 이내 100% 환불 가능합니다. 1주차 오프라인 세션을 경험해보고, 맞지 않으면 전액 돌려드립니다. 1주일 이후에는 환불이 어렵습니다." },
+    { q: "1기와 뭐가 달라졌나요?", a: "1기 운영 경험을 바탕으로 전면 개편했습니다. 일방향 강의를 줄이고 모더레이팅 중심으로 바꿨고, 오프라인 인트로세션을 추가했습니다. 6주차 1:1 세션 이후 만든다/알린다 트랙으로 나뉘어 각자 수준에 맞는 결과물을 만들 수 있도록 설계했습니다." },
+    { q: "오프라인 모임은 필수인가요?", a: "1주차 인트로세션과 12주차 최종 발표는 오프라인으로 진행됩니다. 이 두 세션은 가능한 한 참석을 권장합니다. 나머지 세션은 온라인으로 진행되어 서울 외 지역 거주자도 참여 가능합니다." },
+    { q: "해외에서 참가해도 되나요?", a: "온라인 세션 참여는 가능합니다. 다만 1주차, 12주차 오프라인 세션은 서울에서 진행되므로 참석이 어려울 수 있습니다. 시차가 맞으면 온라인 세션은 문제없이 참여 가능합니다." }
   ];
 
   const quotes = [
@@ -132,31 +131,29 @@ const FoundersLabLanding = () => {
 
   const targets = [
     { title: "퇴사를 고민 중인 직장인", desc: "언젠간 내 사업을 하고 싶지만, 지금 당장은 확신이 없는 분.\n퇴사 전에 검증해보고 싶은 분." },
-    { title: "아이디어는 있지만 실행이 막막한 분", desc: "머릿속에 아이템은 있는데, 어디서부터 시작해야 할지 모르는 분.\n혼자 검색하다 지친 분." },
-    { title: "부업 경험은 있지만 확장이 안 되는 분", desc: "스마트스토어, 클래스101, 프리랜서 등 해봤지만\n'내 사업'으로 키우는 방법을 모르는 분." },
+    { title: "아이디어는 있지만 실행이 막막한 분", desc: "머릿속에 아이템은 있는데, 어디서부터 시작해야 할지 모르는 분.\n생각이 방사되어 정리가 안 되는 분." },
+    { title: "혼자 준비하다 추진력이 떨어진 분", desc: "콘텐츠나 강의는 들었지만 실행으로 연결이 안 되는 분.\n강제성과 리듬이 필요한 분." },
     { title: "같은 고민을 나눌 동료가 필요한 분", desc: "주변에 창업 준비하는 사람이 없어서 외로운 분.\n서로 자극받고 밀어줄 팀이 필요한 분." },
     { title: "AI를 활용해 효율적으로 준비하고 싶은 분", desc: "본업이 바쁜데, 창업 준비까지 하려면 시간이 부족한 분.\nAI로 시간을 아끼고 싶은 분." },
   ];
 
   const phase1 = [
-    ["1주 (4/5~)", "문제 정의", "비즈니스 블루프린트 (수익방정식 및 로직트리)", "🎙 4월 5일(일) 오후 8시"],
-    ["2주 (4/12~)", "고객 검증", "잠재고객 5인 딥인터뷰 결과 및 페인포인트 분석 리포트", ""],
-    ["3주 (4/19~)", "가치 제안", "비즈니스 모델 캔버스", "🎙 4월 19일(일) 오후 8시"],
-    ["4주 (4/26~)", "재무 설계", "퇴사 목표 대시보드", "📋 온라인 체크업 1차"],
+    ["1주차 (7/4~)", "오프라인 인트로세션", "강의 1 (생방) + AI 환경 세팅 + 방향 정렬 (\"나는 뭘 하려는가\")", "🏢 오프라인 필수"],
+    ["2주차", "고객 발견", "숙제 1 진행 — 페르소나 기반 고객 인터뷰", ""],
+    ["3주차", "모더레이팅 체크업", "숙제 1 완성 점검 + 그룹 토론", "💬 온라인 모더레이팅"],
+    ["4~5주차", "사업계획 구체화", "AI 강의 2 (생방 or 녹화 시청) + 사업계획 완성", "🎙 강의 2"],
   ];
-  
+
   const phase2 = [
-    ["5주 (5/3~)", "AI 부서 세팅", "부서별 가상 조직도 및 1호 AI직원", "🎙 5월 3일(일) 오후 8시"],
-    ["6주 (5/10~)", "Dirty MVP 런칭", "결제 링크 포함된 Dirty MVP", ""],
-    ["7주 (5/17~)", "마케팅 엔진 가동", "콘텐츠 캘린더 및 채널별 배포 실행안", "🎙 5월 17일(일) 오후 8시"],
-    ["8주 (5/24~)", "중간 체크업", "유입-클릭-전환 데이터 취합 및 병목 구간 분석 보고서", "📋 온라인 체크업 2차"],
+    ["6주차", "1:1 세션", "AI 감각 + 사업계획 기반 \"무엇을 만들 것인지\" 확정", "🎯 1:1 온라인"],
+    ["7주차", "개인 발표", "만들 것 or 알릴 것 — 액션 플랜 발표", "💬 온라인 발표"],
   ];
-  
+
   const phase3 = [
-    ["9주 (5/31~)", "고전환 세일즈 퍼널 최적화", "고도화 상세페이지 및 CX자동화 워크플로우", "🎙 5월 31일(일) 오후 8시"],
-    ["10주 (6/7~)", "수익 실현 및 첫 매출 확보", "유료 결제 또는 유효 리드 DB", ""],
-    ["11주 (6/14~)", "경제성 평가", "실제 집행 데이터 기반 수익성 검증 및 퇴사 적합성 최종 평가", ""],
-    ["12주 (6/21~)", "최종 판정", "90일 성과 및 향후 로드맵 포함 3분 피치 덱", "🎉 파운더스 나잇 (데모데이)"],
+    ["8~9주차", "만들기 / 알리기 실행", "트랙별 실행 시작 + 그룹별 중간 진도 체크 세션 1회", "📋 중간 체크"],
+    ["10주차", "진행 피드백", "1:1 진행 상황 피드백 — 방향 수정 or ongoing 피드백", "🎯 1:1 온라인"],
+    ["11주차", "시장 테스트", "시장 반응 확인 + 성과 지표 정리", ""],
+    ["12주차", "최종 발표", "12주 성과 발표 및 마무리", "🎉 오프라인 데모데이"],
   ];
 
   const tools = [
@@ -175,10 +172,11 @@ const FoundersLabLanding = () => {
 
   const includes = [
     "12주 주차별 가이드 + 실습 과제",
-    "퇴사계산기, AI프롬프트북, 세일즈카피템플릿 등 툴킷 전체",
-    "6인 1조 피어 커뮤니티 (운영진 직접 편성)",
-    "운영진 중간 체크업 (4주/8주/12주)",
-    "파운더스 나잇 (데모데이 + 네트워킹)",
+    "라이브 강의 2회 + 녹화 강의 아카이브",
+    "1:1 세션 2회 (6주차, 10주차)",
+    "모더레이팅 그룹 세션",
+    "퇴사계산기, AI프롬프트북, 세일즈카피템플릿 등 툴킷",
+    "오프라인 인트로세션 + 최종 발표 (데모데이)",
     "수료 후에도 접근 가능한 자료 아카이브"
   ];
 
@@ -191,11 +189,11 @@ const FoundersLabLanding = () => {
       {/* D-Day Banner */}
       <div className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: '#1a1a1a' }}>
         <div className="max-w-4xl mx-auto px-4 py-2.5 flex items-center justify-center gap-3">
-          <span className="text-xs sm:text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>1기 모집 마감</span>
+          <span className="text-xs sm:text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>2기 모집 마감</span>
           <span className="px-2.5 py-1 rounded-full text-sm sm:text-base font-bold" style={{ backgroundColor: '#FF6B35', color: '#fff' }}>
             D-{daysLeft}
           </span>
-          <span className="hidden sm:inline text-xs sm:text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>3월 28일 자정</span>
+          <span className="hidden sm:inline text-xs sm:text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>6월 30일 자정</span>
         </div>
       </div>
 
@@ -206,7 +204,7 @@ const FoundersLabLanding = () => {
           <div className="absolute bottom-16 right-4 sm:right-16 w-24 sm:w-32 h-24 sm:h-32 rounded-full opacity-10" style={{ backgroundColor: '#FF6B35' }}></div>
           
           <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-6 sm:mb-8" style={{ backgroundColor: '#1a1a1a', color: '#fff' }}>
-            Founders Lab 1기 모집 중
+            Founders Lab 2기 모집 중
           </div>
           
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-5 sm:mb-6" style={{ color: '#1a1a1a' }}>
@@ -221,7 +219,7 @@ const FoundersLabLanding = () => {
           </p>
           
           <div className="inline-flex flex-col items-center px-5 py-4 sm:p-6 rounded-2xl" style={{ backgroundColor: 'rgba(255,255,255,0.7)' }}>
-            <p className="text-xs sm:text-sm" style={{ color: '#666' }}>💡 4월 1일 시작 · 소수 정예 진행, 마감 시 조기 종료</p>
+            <p className="text-xs sm:text-sm" style={{ color: '#666' }}>💡 7월 4일 시작 · 모집기간 6/13~6/30 · 소수 정예 진행</p>
           </div>
         </div>
       </section>
@@ -333,8 +331,8 @@ const FoundersLabLanding = () => {
       <section className="py-16 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#fff' }}>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1a1a1a' }}>Founders Lab은 무엇을 하나요?</h2>
-          <p className="text-base sm:text-lg mb-4" style={{ color: '#555' }}>아이디어 검증부터 첫 매출까지, <strong>12주 동안 직접 실행해보는 프로그램</strong>입니다.</p>
-          <p className="text-base sm:text-lg mb-12 sm:mb-16" style={{ color: '#555' }}>강의만 듣고 끝나는 프로그램이 아닙니다. 매주 과제를 수행하고, 시장에 직접 부딪혀봅니다.</p>
+          <p className="text-base sm:text-lg mb-4" style={{ color: '#555' }}>아이디어 정리부터 실행까지, <strong>12주 동안 직접 만들고 시장에 던져보는 프로그램</strong>입니다.</p>
+          <p className="text-base sm:text-lg mb-12 sm:mb-16" style={{ color: '#555' }}>강의는 최소화하고, 모더레이팅과 1:1 세션 중심으로 각자의 속도에 맞춰 실행합니다.</p>
 
           {/* 하나 - Roadmap */}
           <div className="mb-16 sm:mb-20">
@@ -344,28 +342,31 @@ const FoundersLabLanding = () => {
             </div>
             <p className="text-base sm:text-lg mb-3 sm:mb-4" style={{ color: '#555' }}>혼자 하면 "뭘 해야 하지?"에서 멈춥니다. 검증된 순서대로, 한 주씩 따라오면 됩니다.</p>
 
-            {/* 온라인 라이브 강의 안내 */}
-            <div className="flex flex-wrap items-start gap-3 p-4 sm:p-5 rounded-xl mb-8 sm:mb-10" style={{ backgroundColor: '#FDF6E9', border: '1px solid #F0E6D3' }}>
+            {/* 운영 방식 안내 */}
+            <div className="flex flex-wrap items-start gap-3 p-4 sm:p-5 rounded-xl mb-4 sm:mb-5" style={{ backgroundColor: '#FDF6E9', border: '1px solid #F0E6D3' }}>
               <span className="text-lg">🎙</span>
               <div>
-                <p className="text-sm sm:text-base font-bold mb-1" style={{ color: '#1a1a1a' }}>온라인 라이브 강의 — 총 6회 (매 2주 일요일 오후 8시)</p>
-                <p className="text-xs sm:text-sm" style={{ color: '#555' }}>4/5 · 4/19 · 5/3 · 5/17 · 5/31 · 12주차 파운더스 나잇</p>
-                <p className="text-xs mt-1.5" style={{ color: '#888' }}>📹 불참 시 녹화본을 제공해드립니다. · *강의 프로그램은 스터디 진행에 따라 변경될 수 있습니다.</p>
+                <p className="text-sm sm:text-base font-bold mb-1" style={{ color: '#1a1a1a' }}>라이브 강의 2회 + 모더레이팅 세션 중심 운영</p>
+                <p className="text-xs sm:text-sm" style={{ color: '#555' }}>기존 녹화본은 사전 시청 과제로 배포하고, 세션 당일은 모더레이팅만 진행합니다.</p>
+                <p className="text-xs mt-1.5" style={{ color: '#888' }}>📹 강의 녹화본 제공 · *프로그램은 진행에 따라 일부 변경될 수 있습니다.</p>
               </div>
             </div>
 
-            {/* Phase 0 */}
-            <div className="mb-6 sm:mb-8 p-4 sm:p-5 rounded-xl" style={{ backgroundColor: '#F5F5F5' }}>
-              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                <span className="px-2.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-bold" style={{ backgroundColor: '#1a1a1a', color: '#fff' }}>Phase 0</span>
-                <span className="font-bold text-sm sm:text-base" style={{ color: '#1a1a1a' }}>4월 1일 ~ 4월 4일 · 조편성 및 오리엔테이션</span>
+            {/* 트랙 분화 안내 */}
+            <div className="flex flex-wrap items-start gap-3 p-4 sm:p-5 rounded-xl mb-8 sm:mb-10" style={{ backgroundColor: '#FDF6E9', border: '1px solid #F0E6D3' }}>
+              <span className="text-lg">🔀</span>
+              <div>
+                <p className="text-sm sm:text-base font-bold mb-1" style={{ color: '#1a1a1a' }}>6주차 이후, 두 가지 트랙으로 나뉩니다</p>
+                <p className="text-xs sm:text-sm" style={{ color: '#555' }}><strong>만든다</strong> — 디지털 프로덕트 또는 서비스를 직접 제작하는 분</p>
+                <p className="text-xs sm:text-sm" style={{ color: '#555' }}><strong>알린다</strong> — SNS 채널 운영, 개인 브랜딩을 먼저 구축하는 분</p>
+                <p className="text-xs mt-1.5" style={{ color: '#888' }}>각자 수준에 맞는 결과물을 선택할 수 있도록 1:1 세션에서 함께 설계합니다.</p>
               </div>
             </div>
 
             {[
-              { phase: "Phase 1", title: "비즈니스 로직 구조화 (1-4주)", desc: "\"내 아이디어가 정말 돈이 될까?\"를 검증합니다.", data: phase1, result: "이 단계를 거치면 \"월 얼마를 벌어야 퇴사할 수 있는지\", \"그러려면 몇 명에게 팔아야 하는지\" 숫자로 알게 됩니다." },
-              { phase: "Phase 2", title: "실행 인프라 구축 · 시장 반응 확인 (5-8주)", desc: "\"사람들이 정말 관심을 가질까?\"를 검증합니다.", data: phase2, result: "이 단계를 거치면 \"몇 명이 관심을 보이는지\", \"어떤 메시지에 반응하는지\" 데이터로 확인합니다." },
-              { phase: "Phase 3", title: "수익 로직 업그레이드 (9-12주)", desc: "\"실제로 돈을 낼까?\"를 검증합니다.", data: phase3, result: "이 단계를 거치면 \"실제 유료 고객\" 또는 \"왜 안 되는지에 대한 구체적인 피드백\"을 얻습니다." }
+              { phase: "Phase 1", title: "방향 정렬 + 고객 발견 (1~5주)", desc: "\"나는 뭘 하려는가\", \"누가 내 고객인가\"를 정리합니다.", data: phase1, result: "이 단계를 거치면 내 아이디어의 방향이 잡히고, 고객이 실제로 겪는 문제를 인터뷰를 통해 확인하게 됩니다." },
+              { phase: "Phase 2", title: "결정 + 액션 플랜 (6~7주)", desc: "\"무엇을 만들 것인지\" 또는 \"무엇을 알릴 것인지\"를 확정합니다.", data: phase2, result: "이 단계를 거치면 만든다/알린다 트랙이 확정되고, 나머지 기간의 구체적인 액션 아이템이 정해집니다." },
+              { phase: "Phase 3", title: "실행 + 시장 테스트 (8~12주)", desc: "직접 만들고, 알리고, 시장 반응을 확인합니다.", data: phase3, result: "이 단계를 거치면 실제 결과물과 시장 반응 데이터를 손에 쥐게 됩니다." }
             ].map((p, pi) => (
               <div key={pi} className="mb-8 sm:mb-10">
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
@@ -416,11 +417,11 @@ const FoundersLabLanding = () => {
             ))}
           </div>
 
-          {/* 둘 - Peer Community */}
+          {/* 둘 - 모더레이팅 그룹 */}
           <div className="mb-16 sm:mb-20">
             <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 mb-6 sm:mb-8">
               <span className="text-2xl sm:text-3xl font-bold" style={{ color: '#FF6B35' }}>둘.</span>
-              <h3 className="text-xl sm:text-2xl font-bold" style={{ color: '#1a1a1a' }}>6인 1조 피어 커뮤니티로 함께합니다.</h3>
+              <h3 className="text-xl sm:text-2xl font-bold" style={{ color: '#1a1a1a' }}>모더레이팅 세션으로 함께합니다.</h3>
             </div>
             <p className="text-base sm:text-lg mb-5 sm:mb-6" style={{ color: '#555' }}>혼자 하면 3가지 문제가 생깁니다.</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8 sm:mb-10">
@@ -432,23 +433,27 @@ const FoundersLabLanding = () => {
                 </div>
               ))}
             </div>
-            <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: '#333' }}>그래서 <strong>서로 역량이 보완되는 6명이 한 조</strong>가 됩니다.</p>
-            
+            <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: '#333' }}>그래서 <strong>강의 대신 모더레이팅 방식</strong>으로 함께 정리합니다.</p>
+
             <div className="p-5 sm:p-6 rounded-xl mb-4" style={{ backgroundColor: '#FDF6E9' }}>
-              <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base" style={{ color: '#1a1a1a' }}>조 편성 원칙</h4>
-              <p className="text-xs sm:text-sm mb-3" style={{ color: '#555' }}>신청서에 본인 스킬과 필요한 도움을 작성하면, 운영진이 직접 조를 편성합니다.</p>
-              <p className="text-xs sm:text-sm" style={{ color: '#666' }}>예: 마케팅 잘하는 A + 개발 잘하는 B + 디자인 잘하는 C → <strong>서로 부족한 부분을 채워주는 구성</strong></p>
-            </div>
-            
-            <div className="p-5 sm:p-6 rounded-xl" style={{ backgroundColor: '#FDF6E9' }}>
-              <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base" style={{ color: '#1a1a1a' }}>주간 피어 세션</h4>
-              <p className="text-xs sm:text-sm mb-2" style={{ color: '#555' }}>매주 1회, 조원끼리 온라인으로 모입니다.</p>
+              <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base" style={{ color: '#1a1a1a' }}>모더레이팅 세션</h4>
+              <p className="text-xs sm:text-sm mb-2" style={{ color: '#555' }}>2주에 1회, 그룹 토론 형태로 진행합니다.</p>
               <ul className="text-xs sm:text-sm space-y-1" style={{ color: '#666' }}>
-                <li>• 이번 주 과제 공유 + 피드백</li>
-                <li>• 막힌 부분 함께 해결</li>
-                <li>• 다음 주 목표 설정 + 상호 약속</li>
+                <li>• 돌아가며 각자 진행 상황 공유</li>
+                <li>• 그룹 토론으로 막힌 부분 해결</li>
+                <li>• 다음 2주 액션 아이템 설정</li>
               </ul>
-              <p className="text-xs sm:text-sm mt-3" style={{ color: '#333' }}>혼자 하면 "다음 주에 해야지" 하다가 한 달이 갑니다. <strong>조원에게 약속하면 안 할 수가 없습니다.</strong></p>
+              <p className="text-xs sm:text-sm mt-3" style={{ color: '#333' }}>일방향 강의가 아닌, <strong>서로의 이야기를 들으며 스스로 정리하는 구조</strong>입니다.</p>
+            </div>
+
+            <div className="p-5 sm:p-6 rounded-xl" style={{ backgroundColor: '#FDF6E9' }}>
+              <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base" style={{ color: '#1a1a1a' }}>6주차 이후 트랙별 그룹</h4>
+              <p className="text-xs sm:text-sm mb-2" style={{ color: '#555' }}>6주차 1:1 세션 이후, 만든다/알린다 트랙별로 나뉘어 운영됩니다.</p>
+              <ul className="text-xs sm:text-sm space-y-1" style={{ color: '#666' }}>
+                <li>• <strong>만든다</strong> — 디지털 프로덕트 or 서비스 직접 제작</li>
+                <li>• <strong>알린다</strong> — SNS 채널 운영, 개인 브랜딩 구축</li>
+              </ul>
+              <p className="text-xs sm:text-sm mt-3" style={{ color: '#333' }}>같은 방향의 참여자들끼리 <strong>더 깊이 있는 피드백</strong>을 주고받습니다.</p>
             </div>
           </div>
 
@@ -471,15 +476,15 @@ const FoundersLabLanding = () => {
             </div>
           </div>
 
-          {/* 넷 - Checkup */}
+          {/* 넷 - 1:1 세션 & 체크업 */}
           <div className="mb-16 sm:mb-20">
             <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 mb-6 sm:mb-8">
               <span className="text-2xl sm:text-3xl font-bold" style={{ color: '#FF6B35' }}>넷.</span>
-              <h3 className="text-xl sm:text-2xl font-bold" style={{ color: '#1a1a1a' }}>운영진 체크업이 있습니다.</h3>
+              <h3 className="text-xl sm:text-2xl font-bold" style={{ color: '#1a1a1a' }}>1:1 세션과 체크업이 있습니다.</h3>
             </div>
-            <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: '#555' }}>조원끼리 해결 안 되는 문제도 있습니다. <strong>운영진이 중간중간 체크업</strong>을 진행합니다.</p>
+            <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: '#555' }}>그룹 세션만으로는 부족합니다. <strong>개인별 상황에 맞춘 1:1 세션</strong>으로 방향을 잡아드립니다.</p>
             <div className="space-y-3 sm:space-y-4">
-              {[{ week: "4주차", title: "Phase 1 점검", desc: "아이템 방향성 피드백" }, { week: "8주차", title: "Phase 2 점검", desc: "MVP/마케팅 피드백" }, { week: "12주차", title: "최종 판정", desc: "퇴사 여부 의견 제시" }].map((item, idx) => (
+              {[{ week: "3주차", title: "모더레이팅 체크업", desc: "숙제 1 완성 점검 + 그룹 피드백" }, { week: "6주차", title: "1:1 세션", desc: "\"무엇을 만들 것인지\" 확정 + 트랙 분화" }, { week: "8~9주차", title: "중간 진도 체크", desc: "그룹별 실행 상황 점검" }, { week: "10주차", title: "1:1 피드백", desc: "진행 상황 기반 방향 수정 or 가속" }, { week: "12주차", title: "최종 발표", desc: "12주 성과 발표 + 마무리" }].map((item, idx) => (
                 <div key={idx} className="flex flex-wrap items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg" style={{ backgroundColor: '#F5F5F5' }}>
                   <span className="px-2.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium" style={{ backgroundColor: '#FF6B35', color: '#fff' }}>{item.week}</span>
                   <div className="flex-1 min-w-0">
@@ -570,21 +575,20 @@ const FoundersLabLanding = () => {
       {/* Pricing Section */}
       <section className="py-16 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#fff' }}>
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center" style={{ color: '#1a1a1a' }}>Founders Lab 1기</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center" style={{ color: '#1a1a1a' }}>Founders Lab 2기</h2>
           <div className="max-w-xl mx-auto p-5 sm:p-8 rounded-2xl" style={{ backgroundColor: '#FDF6E9', border: '2px solid #F0E6D3' }}>
             <div className="grid grid-cols-2 gap-4 mb-6 sm:mb-8">
-              <div><p className="text-xs sm:text-sm" style={{ color: '#666' }}>기간</p><p className="font-medium text-sm sm:text-base" style={{ color: '#1a1a1a' }}>12주 (4월 1일 시작)</p></div>
-              <div><p className="text-xs sm:text-sm" style={{ color: '#666' }}>형태</p><p className="font-medium text-sm sm:text-base leading-snug" style={{ color: '#1a1a1a' }}>온라인<br className="sm:hidden" /> + 월 1회 오프라인</p></div>
+              <div><p className="text-xs sm:text-sm" style={{ color: '#666' }}>기간</p><p className="font-medium text-sm sm:text-base" style={{ color: '#1a1a1a' }}>12주 (7월 4일 시작)</p></div>
+              <div><p className="text-xs sm:text-sm" style={{ color: '#666' }}>형태</p><p className="font-medium text-sm sm:text-base leading-snug" style={{ color: '#1a1a1a' }}>온라인 중심<br className="sm:hidden" /> + 오프라인 2회</p></div>
             </div>
-            
-            {/* 정상가/1기 특별가 */}
+
+            {/* 가격 */}
             <div className="text-center py-5 sm:py-6 mb-5 sm:mb-6" style={{ borderTop: '1px solid #E8DFD0', borderBottom: '1px solid #E8DFD0' }}>
-              <p className="text-base sm:text-lg mb-1" style={{ color: '#999', textDecoration: 'line-through' }}>정상가 490,000원</p>
               <div className="flex items-center justify-center gap-2 mb-1">
-                <span className="px-2 py-0.5 rounded text-xs font-bold" style={{ backgroundColor: '#FF6B35', color: '#fff' }}>1기 특별가</span>
+                <span className="px-2 py-0.5 rounded text-xs font-bold" style={{ backgroundColor: '#FF6B35', color: '#fff' }}>2기</span>
               </div>
-              <p className="text-3xl sm:text-4xl font-bold" style={{ color: '#1a1a1a' }}>297,000원</p>
-              <p className="text-xs sm:text-sm mt-1" style={{ color: '#666' }}>월 99,000원 × 3개월</p>
+              <p className="text-3xl sm:text-4xl font-bold" style={{ color: '#1a1a1a' }}>490,000원</p>
+              <p className="text-xs sm:text-sm mt-1" style={{ color: '#666' }}>모집기간: 6월 13일 ~ 6월 30일</p>
             </div>
             
             <div className="mb-6 sm:mb-8">
@@ -595,7 +599,7 @@ const FoundersLabLanding = () => {
             <div className="p-4 rounded-lg" style={{ backgroundColor: 'rgba(255,107,53,0.1)' }}>
               <p className="text-xs sm:text-sm font-medium mb-2" style={{ color: '#1a1a1a' }}>왜 이 가격인가요?</p>
               <p className="text-xs sm:text-sm" style={{ color: '#555' }}>
-                창업 강의 하나에 50-100만원. 코칭 프로그램은 200-500만원. Founders Lab은 <strong>월 10만원 이하</strong>로 12주간 체계적인 검증 과정을 경험할 수 있습니다. 퇴사 후 실패해서 잃는 비용을 생각하면, <strong>퇴사 전에 30만원으로 검증하는 것</strong>이 훨씬 합리적입니다.
+                창업 강의 하나에 50-100만원. 코칭 프로그램은 200-500만원. Founders Lab은 12주간 1:1 세션, 모더레이팅, 오프라인 세션까지 포함하여 <strong>월 16만원 수준</strong>으로 체계적인 검증 과정을 경험할 수 있습니다. 퇴사 후 실패해서 잃는 비용을 생각하면, <strong>퇴사 전에 검증하는 것</strong>이 훨씬 합리적입니다.
               </p>
             </div>
           </div>
@@ -605,9 +609,9 @@ const FoundersLabLanding = () => {
       {/* Application Form Section */}
       <section id="apply" className="py-16 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#1a1a1a' }}>
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-center" style={{ color: '#fff' }}>1기 신청하기</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-center" style={{ color: '#fff' }}>2기 신청하기</h2>
           <p className="text-center text-sm sm:text-base mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>아래 정보를 입력해주시면 담당자가 확인 후 연락드립니다.</p>
-          <p className="text-center text-sm sm:text-base mb-8 sm:mb-12" style={{ color: '#FF6B35' }}>마감: 3월 28일 자정</p>
+          <p className="text-center text-sm sm:text-base mb-8 sm:mb-12" style={{ color: '#FF6B35' }}>모집기간: 6월 13일 ~ 6월 30일</p>
           
           {submitSuccess ? (
             <div className="text-center p-8 sm:p-12 rounded-2xl" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
@@ -793,9 +797,9 @@ const FoundersLabLanding = () => {
             className="inline-block px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-bold transition-transform hover:scale-105"
             style={{ backgroundColor: '#FF6B35', color: '#fff', border: 'none', cursor: 'pointer' }}
           >
-            1기 신청하기
+            2기 신청하기
           </button>
-          <p className="text-xs sm:text-sm mt-4" style={{ color: 'rgba(255,255,255,0.5)' }}>마감 D-{daysLeft} · 소수 정예 진행</p>
+          <p className="text-xs sm:text-sm mt-4" style={{ color: 'rgba(255,255,255,0.5)' }}>모집 마감 D-{daysLeft} · 7월 4일 시작</p>
         </div>
       </section>
 
@@ -803,11 +807,11 @@ const FoundersLabLanding = () => {
       <div className="fixed bottom-0 left-0 right-0 p-3 sm:p-4 z-40" style={{ backgroundColor: 'rgba(26,26,26,0.98)' }}>
         <div className="max-w-4xl mx-auto flex items-center justify-center sm:justify-between gap-4">
           <div className="hidden sm:block">
-            <p className="text-xs sm:text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>Founders Lab 1기 · D-{daysLeft}</p>
-            <p className="font-bold text-sm sm:text-base" style={{ color: '#fff' }}><span style={{ textDecoration: 'line-through', color: 'rgba(255,255,255,0.5)', fontWeight: 'normal', fontSize: '12px' }}>490,000원</span> 297,000원</p>
+            <p className="text-xs sm:text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>Founders Lab 2기 · D-{daysLeft}</p>
+            <p className="font-bold text-sm sm:text-base" style={{ color: '#fff' }}>490,000원</p>
           </div>
           <div className="sm:hidden">
-            <p className="text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}><span style={{ textDecoration: 'line-through' }}>49만</span> 297,000원 · D-{daysLeft}</p>
+            <p className="text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>490,000원 · D-{daysLeft}</p>
           </div>
           <button
             onClick={scrollToApply}
