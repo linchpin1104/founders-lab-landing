@@ -539,8 +539,81 @@ const FoundersLabLanding = () => {
         </div>
       </section>
 
-      {/* Founders Section - 50억으로 수정 */}
+      {/* 1기 후기 Section */}
       <section className="py-16 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#FAF8F5' }}>
+        <div className="max-w-4xl mx-auto">
+          <p className="text-sm sm:text-base font-medium mb-2 sm:mb-3" style={{ color: '#FF6B35' }}>1기 참가자 후기</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-snug" style={{ color: '#1a1a1a' }}>
+            "물어볼 곳이 없을 때,<br/>물어볼 수 있는 곳이 생겼다."
+          </h2>
+          <p className="text-base sm:text-lg mb-10 sm:mb-14" style={{ color: '#555' }}>
+            창업을 준비하면 가장 힘든 건 아이디어가 아닙니다.<br className="hidden sm:inline" />
+            <strong>혼자라는 것.</strong> 1기 참가자들이 가장 많이 한 말입니다.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-8 sm:mb-10">
+            {[
+              {
+                quote: "같이 팀원처럼 고민해줘서 좋았어요. 혼자 하면 '이게 맞나?' 싶은 순간이 계속 오는데, 옆에서 같이 봐주는 사람이 있으니까 확신이 생기더라고요.",
+                author: "K님",
+                tag: "5년차 마케터"
+              },
+              {
+                quote: "고민되는 걸 물어볼 선배가 있다는 게 진짜 컸어요. 검색해서는 안 나오는, 경험에서 나오는 답을 바로 들을 수 있었어요.",
+                author: "P님",
+                tag: "7년차 기획자"
+              },
+              {
+                quote: "단계마다 어려울 때 필요한 현실적인 도움을 줘서 좋았어요. 이론이 아니라 '지금 이 상황에서 뭘 해야 하는지'를 알려주는 느낌.",
+                author: "L님",
+                tag: "4년차 디자이너"
+              },
+              {
+                quote: "막막한 사업 진행에 있어서 진짜 도움이 됐어요. 머릿속에만 있던 게 12주 만에 실제로 돌아가는 걸 보니까 신기했어요.",
+                author: "J님",
+                tag: "6년차 개발자"
+              },
+            ].map((item, idx) => (
+              <div key={idx} className="p-5 sm:p-6 rounded-xl relative" style={{ backgroundColor: '#fff' }}>
+                <div className="absolute -top-1 left-4 text-3xl" style={{ color: '#FF6B35', opacity: 0.3 }}>"</div>
+                <p className="text-sm sm:text-base leading-relaxed mb-4 pt-2" style={{ color: '#333' }}>
+                  {item.quote}
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#FDF6E9', color: '#FF6B35' }}>
+                    {item.author.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium" style={{ color: '#1a1a1a' }}>{item.author}</p>
+                    <p className="text-xs" style={{ color: '#888' }}>{item.tag}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* 창업지원사업 선정 케이스 */}
+          <div className="p-5 sm:p-6 rounded-xl" style={{ backgroundColor: '#1a1a1a' }}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,107,53,0.2)' }}>
+                <span className="text-2xl">🏆</span>
+              </div>
+              <div className="flex-1">
+                <p className="text-base sm:text-lg font-bold mb-1" style={{ color: '#fff' }}>
+                  1기 참가자 중 창업지원사업 선정 케이스 발생
+                </p>
+                <p className="text-xs sm:text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                  파운더스랩 과정에서 정리한 사업계획과 검증 데이터로 정부 창업지원사업에 선정된 참가자가 있습니다.<br/>
+                  12주간의 검증 과정이 실제 사업의 출발점이 됩니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Founders Section */}
+      <section className="py-16 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#fff' }}>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1a1a1a' }}>누가 운영하나요?</h2>
           <p className="text-base sm:text-lg mb-8 sm:mb-12" style={{ color: '#555' }}>직접 창업하고, 투자받고, 매각까지 해본 사람들이 운영합니다. 이론이 아니라 경험에서 나온 프로그램입니다.</p>
