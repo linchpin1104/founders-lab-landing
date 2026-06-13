@@ -23,7 +23,7 @@ const FoundersLabLanding = () => {
   // D-day 계산 (마감일: 2026년 6월 30일 23:59:59)
   useEffect(() => {
     const calculateDaysLeft = () => {
-      const deadline = new Date('2026-06-30T23:59:59+09:00');
+      const deadline = new Date('2026-07-07T23:59:59+09:00');
       const now = new Date();
       const diff = deadline - now;
       const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
@@ -138,7 +138,7 @@ const FoundersLabLanding = () => {
   ];
 
   const phase1 = [
-    ["1주차 (7/4~)", "오프라인 인트로세션", "라이브 세션 + AI 환경 세팅 + 방향 정렬 (\"나는 뭘 하려는가\")", "🏢 오프라인 필수"],
+    ["1주차 (7/11~)", "오프라인 인트로세션", "라이브 세션 + AI 환경 세팅 + 방향 정렬 (\"나는 뭘 하려는가\")", "🏢 오프라인 필수"],
     ["2주차", "고객 발견", "과제 진행 — 페르소나 기반 고객 인터뷰", ""],
     ["3주차", "모더레이팅 체크업", "과제 점검 + 그룹 토론", "💬 온라인 모더레이팅"],
     ["4~5주차", "사업계획 구체화", "AI 활용 세션 (생방 or 녹화 시청) + 사업계획 완성", "🎙 라이브 세션"],
@@ -193,7 +193,7 @@ const FoundersLabLanding = () => {
           <span className="px-2.5 py-1 rounded-full text-sm sm:text-base font-bold" style={{ backgroundColor: '#FF6B35', color: '#fff' }}>
             D-{daysLeft}
           </span>
-          <span className="hidden sm:inline text-xs sm:text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>6월 30일 자정</span>
+          <span className="hidden sm:inline text-xs sm:text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>7월 7일 자정</span>
         </div>
       </div>
 
@@ -219,7 +219,7 @@ const FoundersLabLanding = () => {
           </p>
           
           <div className="inline-flex flex-col items-center px-5 py-4 sm:p-6 rounded-2xl" style={{ backgroundColor: 'rgba(255,255,255,0.7)' }}>
-            <p className="text-xs sm:text-sm" style={{ color: '#666' }}>💡 7월 4일 시작 · 모집기간 6/13~6/30 · 소수 정예 진행</p>
+            <p className="text-xs sm:text-sm" style={{ color: '#666' }}>💡 7월 11일 시작 · 모집기간 6/13~7/7 · 소수 정예 진행</p>
           </div>
         </div>
       </section>
@@ -337,6 +337,21 @@ const FoundersLabLanding = () => {
                 quote: "막막한 사업 진행에 있어서 진짜 도움이 됐어요. 머릿속에만 있던 게 12주 만에 실제로 돌아가는 걸 보니까 신기했어요.",
                 author: "J님",
                 tag: "6년차 개발자"
+              },
+              {
+                quote: "15년 가깝게 남의 사업을 위해 일하다가 시작한 파운더스랩은 온실의 천장을 깨주고 더 큰 세상이 존재한다는 깨달음을 주었습니다. 모두의 창업에 지원하여 1차 통과라는 쾌거까지, 새벽까지 과제를 완성하던 시간들이 헛되지 않았다는 증거가 되었네요.",
+                author: "아린쥐맘님",
+                tag: "15년차 직장인"
+              },
+              {
+                quote: "처음엔 사업아이템도 없이 막연히 관망하며 시작했어요. 그런데 여기 속해있는 것만으로도 큰 도움이 되더라고요. 문득 떠오른 아이템으로 모두의 창업에 지원해 우수 아이디어로 선정되었고, 1:1 멘토링을 통해 서비스 만들기까지 시작하게 됐어요.",
+                author: "싹쓸님",
+                tag: "1기 참가자"
+              },
+              {
+                quote: "21살 때 창업 실패 이후 늘 두려움이 컸는데, 파운더스랩은 막혀있던 혈자리를 정확하게 짚어주는 명의 같은 프로그램이었습니다. 막연했던 아이디어를 구체화하는 방법을 알려주셔서 모두의 창업 1라운드 진출이라는 값진 결과도 얻을 수 있었습니다.",
+                author: "노트앤드님",
+                tag: "1기 참가자"
               },
             ].map((item, idx) => (
               <div key={idx} className="flex-shrink-0 w-[280px] sm:w-[320px] p-6 rounded-2xl relative flex flex-col justify-between" style={{ backgroundColor: '#fff', scrollSnapAlign: 'start', boxShadow: '0 2px 16px rgba(0,0,0,0.06)' }}>
@@ -654,7 +669,7 @@ const FoundersLabLanding = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center" style={{ color: '#1a1a1a' }}>Founders Lab 2기</h2>
           <div className="max-w-xl mx-auto p-5 sm:p-8 rounded-2xl" style={{ backgroundColor: '#FDF6E9', border: '2px solid #F0E6D3' }}>
             <div className="grid grid-cols-2 gap-4 mb-6 sm:mb-8">
-              <div><p className="text-xs sm:text-sm" style={{ color: '#666' }}>기간</p><p className="font-medium text-sm sm:text-base" style={{ color: '#1a1a1a' }}>12주 (7월 4일 시작)</p></div>
+              <div><p className="text-xs sm:text-sm" style={{ color: '#666' }}>기간</p><p className="font-medium text-sm sm:text-base" style={{ color: '#1a1a1a' }}>12주 (7월 11일 시작)</p></div>
               <div><p className="text-xs sm:text-sm" style={{ color: '#666' }}>형태</p><p className="font-medium text-sm sm:text-base leading-snug" style={{ color: '#1a1a1a' }}>온라인 중심<br className="sm:hidden" /> + 오프라인 2회</p></div>
             </div>
 
@@ -664,7 +679,7 @@ const FoundersLabLanding = () => {
                 <span className="px-2 py-0.5 rounded text-xs font-bold" style={{ backgroundColor: '#FF6B35', color: '#fff' }}>2기</span>
               </div>
               <p className="text-3xl sm:text-4xl font-bold" style={{ color: '#1a1a1a' }}>490,000원</p>
-              <p className="text-xs sm:text-sm mt-1" style={{ color: '#666' }}>모집기간: 6월 13일 ~ 6월 30일</p>
+              <p className="text-xs sm:text-sm mt-1" style={{ color: '#666' }}>모집기간: 6월 13일 ~ 7월 7일</p>
             </div>
             
             <div className="mb-6 sm:mb-8">
@@ -687,7 +702,7 @@ const FoundersLabLanding = () => {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-center" style={{ color: '#fff' }}>2기 신청하기</h2>
           <p className="text-center text-sm sm:text-base mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>아래 정보를 입력해주시면 담당자가 확인 후 연락드립니다.</p>
-          <p className="text-center text-sm sm:text-base mb-8 sm:mb-12" style={{ color: '#FF6B35' }}>모집기간: 6월 13일 ~ 6월 30일</p>
+          <p className="text-center text-sm sm:text-base mb-8 sm:mb-12" style={{ color: '#FF6B35' }}>모집기간: 6월 13일 ~ 7월 7일</p>
           
           {submitSuccess ? (
             <div className="text-center p-8 sm:p-12 rounded-2xl" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
@@ -875,7 +890,7 @@ const FoundersLabLanding = () => {
           >
             2기 신청하기
           </button>
-          <p className="text-xs sm:text-sm mt-4" style={{ color: 'rgba(255,255,255,0.5)' }}>모집 마감 D-{daysLeft} · 7월 4일 시작</p>
+          <p className="text-xs sm:text-sm mt-4" style={{ color: 'rgba(255,255,255,0.5)' }}>모집 마감 D-{daysLeft} · 7월 11일 시작</p>
         </div>
       </section>
 
