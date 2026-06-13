@@ -283,7 +283,7 @@ const FoundersLabLanding = () => {
           
           {/* Two Outcomes */}
           <div className="p-5 sm:p-8 rounded-2xl mb-6 sm:mb-8" style={{ backgroundColor: '#1a1a1a' }}>
-            <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center" style={{ color: '#fff' }}>12주 후, 둘 중 하나를 알게 됩니다.</h3>
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center" style={{ color: '#fff' }}>어떤 선택이든, 후회하지 않도록.</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div className="p-5 sm:p-6 rounded-xl" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
                 <div className="text-xl sm:text-2xl mb-2 sm:mb-3">✅</div>
@@ -316,45 +316,64 @@ const FoundersLabLanding = () => {
             <strong>혼자라는 것.</strong> 1기 참가자들이 가장 많이 한 말입니다.
           </p>
 
-          <div className="flex gap-4 overflow-x-auto pb-4 -mx-5 px-5 sm:-mx-0 sm:px-0 hide-scrollbar" style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
+          {/* 카카오톡 실제 후기 이미지 — 그리드 */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+            {[
+              { src: "/reviews/review-arinmom.png", alt: "참가자 A님 후기" },
+              { src: "/reviews/review-ssaksseul.png", alt: "참가자 B님 후기" },
+              { src: "/reviews/review-noteand.png", alt: "참가자 C님 후기" },
+            ].map((img, idx) => (
+              <div key={idx} className="rounded-2xl overflow-hidden" style={{ boxShadow: '0 2px 16px rgba(0,0,0,0.06)' }}>
+                <img src={img.src} alt={img.alt} className="w-full h-auto block" style={{ borderRadius: '16px' }} />
+              </div>
+            ))}
+          </div>
+
+          {/* 참가자 후기 영상 */}
+          <p className="text-sm font-medium mb-4" style={{ color: '#FF6B35' }}>참가자 후기 영상</p>
+          <div className="flex justify-center mb-10">
+            <div className="w-[220px] sm:w-[270px] rounded-2xl overflow-hidden" style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.10)', aspectRatio: '9/16' }}>
+              <iframe
+                src="https://www.youtube.com/embed/h6pDe_waOsM"
+                title="파운더스랩 1기 참가자 후기 영상"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full border-0"
+              />
+            </div>
+          </div>
+
+          {/* 참가자 인터뷰 — 그리드 */}
+          <p className="text-sm font-medium mb-4" style={{ color: '#FF6B35' }}>참가자 인터뷰</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
             {[
               {
-                quote: "같이 팀원처럼 고민해줘서 좋았어요. 혼자 하면 '이게 맞나?' 싶은 순간이 계속 오는데, 옆에서 같이 봐주는 사람이 있으니까 확신이 생기더라고요.",
-                author: "K님",
-                tag: "5년차 마케터"
+                quote: "15년간 직장생활 하면서 갇혀 있었어요. '내가 할 줄 아는 게 아무것도 없구나' 싶었는데, 새로운 세상이 있었구나 깨달았어요. 항상 스트레스로 몸이 아팠는데 이걸 하는 동안에는 너무 힘이 났어요.",
+                author: "A님",
+                tag: "대기업 15년차"
               },
               {
-                quote: "고민되는 걸 물어볼 선배가 있다는 게 진짜 컸어요. 검색해서는 안 나오는, 경험에서 나오는 답을 바로 들을 수 있었어요.",
-                author: "P님",
-                tag: "7년차 기획자"
+                quote: "하길 너무 잘했다는 생각을 했어요. 예전에 냅다 하면 망한다는 걸 배웠기에 두려움도 있었는데, 모호하게 품고만 있던 걸 풀어낼 수 있는 시간이 됐어요.",
+                author: "N님",
+                tag: "창업 재도전"
               },
               {
-                quote: "단계마다 어려울 때 필요한 현실적인 도움을 줘서 좋았어요. 이론이 아니라 '지금 이 상황에서 뭘 해야 하는지'를 알려주는 느낌.",
-                author: "L님",
-                tag: "4년차 디자이너"
+                quote: "AI로 저만의 비서를 만들었어요. 회사 일에도 도움이 되고, 재테크용 비서도 계속 만들고 있어요. 코딩을 몰라도 AI가 알아서 해주니까, 만들다 보면 사업 아이템도 생기지 않을까요.",
+                author: "S님",
+                tag: "회계법인 직원"
               },
               {
-                quote: "막막한 사업 진행에 있어서 진짜 도움이 됐어요. 머릿속에만 있던 게 12주 만에 실제로 돌아가는 걸 보니까 신기했어요.",
-                author: "J님",
-                tag: "6년차 개발자"
+                quote: "시야가 너무 좁고 물어볼 사람도 없었는데, 환경이 바뀌니까 더 열심히 하게 됐어요. AI로 상세페이지를 리뉴얼하고 가격도 올렸는데, 주문은 그대로더라고요.",
+                author: "C님",
+                tag: "콘텐츠 크리에이터"
               },
               {
-                quote: "15년 가깝게 남의 사업을 위해 일하다가 시작한 파운더스랩은 온실의 천장을 깨주고 더 큰 세상이 존재한다는 깨달음을 주었습니다. 모두의 창업에 지원하여 1차 통과라는 쾌거까지, 새벽까지 과제를 완성하던 시간들이 헛되지 않았다는 증거가 되었네요.",
-                author: "아린쥐맘님",
-                tag: "15년차 직장인"
-              },
-              {
-                quote: "처음엔 사업아이템도 없이 막연히 관망하며 시작했어요. 그런데 여기 속해있는 것만으로도 큰 도움이 되더라고요. 문득 떠오른 아이템으로 모두의 창업에 지원해 우수 아이디어로 선정되었고, 1:1 멘토링을 통해 서비스 만들기까지 시작하게 됐어요.",
-                author: "싹쓸님",
-                tag: "1기 참가자"
-              },
-              {
-                quote: "21살 때 창업 실패 이후 늘 두려움이 컸는데, 파운더스랩은 막혀있던 혈자리를 정확하게 짚어주는 명의 같은 프로그램이었습니다. 막연했던 아이디어를 구체화하는 방법을 알려주셔서 모두의 창업 1라운드 진출이라는 값진 결과도 얻을 수 있었습니다.",
-                author: "노트앤드님",
-                tag: "1기 참가자"
+                quote: "회사에 귀속되어서 제 능력이 발현되지 못하는 게 안타까웠어요. 여기서 사업의 밑그림을 그릴 수 있었고, 회사에선 알 수 없었던 관점들을 배웠어요. 꼭 여기 안에서 사업을 시작하고 싶어요.",
+                author: "R님",
+                tag: "6년차 직장인"
               },
             ].map((item, idx) => (
-              <div key={idx} className="flex-shrink-0 w-[280px] sm:w-[320px] p-6 rounded-2xl relative flex flex-col justify-between" style={{ backgroundColor: '#fff', scrollSnapAlign: 'start', boxShadow: '0 2px 16px rgba(0,0,0,0.06)' }}>
+              <div key={idx} className="p-6 rounded-2xl flex flex-col justify-between" style={{ backgroundColor: '#fff', boxShadow: '0 2px 16px rgba(0,0,0,0.06)' }}>
                 <div>
                   <div className="text-3xl mb-3" style={{ color: '#FF6B35', opacity: 0.25 }}>"</div>
                   <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#333' }}>
@@ -373,10 +392,9 @@ const FoundersLabLanding = () => {
               </div>
             ))}
           </div>
-          <p className="text-xs mt-3 sm:hidden" style={{ color: '#aaa' }}>← 밀어서 더 보기</p>
 
           {/* 창업지원사업 선정 케이스 */}
-          <div className="p-5 sm:p-6 rounded-xl" style={{ backgroundColor: '#1a1a1a' }}>
+          <div className="p-5 sm:p-6 rounded-xl mt-10" style={{ backgroundColor: '#1a1a1a' }}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,107,53,0.2)' }}>
                 <span className="text-2xl">🏆</span>
@@ -438,6 +456,21 @@ const FoundersLabLanding = () => {
                 <p className="text-xs sm:text-sm" style={{ color: '#555' }}>기존 녹화본은 사전 시청 과제로 배포하고, 세션 당일은 모더레이팅만 진행합니다.</p>
                 <p className="text-xs mt-1.5" style={{ color: '#888' }}>📹 강의 녹화본 제공 · *프로그램은 진행에 따라 일부 변경될 수 있습니다.</p>
               </div>
+            </div>
+
+            {/* 실제 강의 갤러리 */}
+            <div className="grid grid-cols-2 gap-3 mb-4 sm:mb-5">
+              {[
+                { src: "/activities/lecture-vibe-coding.png", label: "바이브코딩 강의" },
+                { src: "/activities/lecture-research-agent.png", label: "AI 리서치 에이전트 만들기" },
+                { src: "/activities/lecture-week1-2.webp", label: "문제 정의 & 고객 검증" },
+                { src: "/activities/lecture-week3.webp", label: "가치제안 & 수익모델 설계" },
+              ].map((item, idx) => (
+                <div key={idx} className="rounded-xl overflow-hidden" style={{ boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}>
+                  <img src={item.src} alt={item.label} className="w-full h-[100px] sm:h-[140px] object-cover block" />
+                  <p className="text-xs py-2 text-center" style={{ color: '#888', backgroundColor: '#fff' }}>{item.label}</p>
+                </div>
+              ))}
             </div>
 
             {/* 트랙 분화 안내 */}
@@ -592,6 +625,12 @@ const FoundersLabLanding = () => {
               <h3 className="text-xl sm:text-2xl font-bold" style={{ color: '#1a1a1a' }}>파운더스 나잇으로 마무리합니다.</h3>
             </div>
             <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: '#555' }}>12주간의 여정을 마무리하는 오프라인 행사입니다.</p>
+
+            {/* 1기 오프라인 세션 사진 */}
+            <div className="rounded-2xl overflow-hidden mb-6 sm:mb-8" style={{ boxShadow: '0 2px 16px rgba(0,0,0,0.08)' }}>
+              <img src="/activities/offline-session.webp" alt="파운더스랩 1기 오프라인 세션" className="w-full h-[200px] sm:h-[300px] object-cover block" />
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               <div className="p-5 sm:p-6 rounded-xl" style={{ backgroundColor: '#FDF6E9' }}>
                 <h4 className="font-bold mb-2 sm:mb-3 text-sm sm:text-base" style={{ color: '#1a1a1a' }}>🎤 데모데이</h4>
@@ -650,12 +689,11 @@ const FoundersLabLanding = () => {
               <h3 className="text-lg sm:text-xl font-bold mb-1" style={{ color: '#1a1a1a' }}>이혜린 부대표</h3>
               <p className="text-xs sm:text-sm mb-3 sm:mb-4" style={{ color: '#FF6B35' }}>쉬벤처스 공동창업자</p>
               <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm" style={{ color: '#555' }}>
+                <li>• KTB투자증권(다올투자증권)</li>
                 <li>• 육아상담 플랫폼 '그로잉맘' 창업 후 매각</li>
                 <li>• 푸드·뷰티테크·헬스케어·교육 비즈니스<br className="sm:hidden" /> CSO/COO 역임</li>
                 <li>• 하비탄AI AX교육 총괄</li>
-                <li>• 이화여대 스테이션이화 멘토 /<br className="sm:hidden" /> 모두의창업 멘토 (서울창조경제혁신센터·인벤션랩)</li>
-                <li>• 사단법인 더나일 이사</li>
-                <li>• 《엄마의 속도로 일하고 있습니다》 저자</li>
+                <li>• 이화여대, 현대자동차, KT, 창조경제혁신센터<br className="sm:hidden" /> 다수 기관의 창업멘토링 및 교육진행</li>
                 <li>• 이화여대 석사 / 고려대 창업학 박사과정</li>
               </ul>
             </div>
