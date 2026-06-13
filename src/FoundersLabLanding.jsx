@@ -130,11 +130,11 @@ const FoundersLabLanding = () => {
   ];
 
   const targets = [
-    { title: "퇴사를 고민 중인 직장인", desc: "언젠간 내 사업을 하고 싶지만, 지금 당장은 확신이 없는 분.\n퇴사 전에 검증해보고 싶은 분." },
-    { title: "아이디어는 있지만 실행이 막막한 분", desc: "머릿속에 아이템은 있는데, 어디서부터 시작해야 할지 모르는 분.\n생각이 방사되어 정리가 안 되는 분." },
-    { title: "혼자 준비하다 추진력이 떨어진 분", desc: "콘텐츠나 강의는 들었지만 실행으로 연결이 안 되는 분.\n강제성과 리듬이 필요한 분." },
-    { title: "같은 고민을 나눌 동료가 필요한 분", desc: "주변에 창업 준비하는 사람이 없어서 외로운 분.\n서로 자극받고 밀어줄 팀이 필요한 분." },
-    { title: "AI를 활용해 효율적으로 준비하고 싶은 분", desc: "본업이 바쁜데, 창업 준비까지 하려면 시간이 부족한 분.\nAI로 시간을 아끼고 싶은 분." },
+    { icon: "💼", title: "퇴사를 고민 중인 직장인", desc: "언젠간 내 사업을 하고 싶지만, 지금 당장은 확신이 없는 분.\n퇴사 전에 검증해보고 싶은 분." },
+    { icon: "💡", title: "아이디어는 있지만 실행이 막막한 분", desc: "머릿속에 아이템은 있는데, 어디서부터 시작해야 할지 모르는 분.\n생각이 방사되어 정리가 안 되는 분." },
+    { icon: "🔥", title: "혼자 준비하다 추진력이 떨어진 분", desc: "콘텐츠나 강의는 들었지만 실행으로 연결이 안 되는 분.\n강제성과 리듬이 필요한 분." },
+    { icon: "👥", title: "같은 고민을 나눌 동료가 필요한 분", desc: "주변에 창업 준비하는 사람이 없어서 외로운 분.\n서로 자극받고 밀어줄 팀이 필요한 분." },
+    { icon: "🤖", title: "AI를 활용해 효율적으로 준비하고 싶은 분", desc: "본업이 바쁜데, 창업 준비까지 하려면 시간이 부족한 분.\nAI로 시간을 아끼고 싶은 분." },
   ];
 
   const phase1 = [
@@ -316,7 +316,7 @@ const FoundersLabLanding = () => {
             <strong>혼자라는 것.</strong> 1기 참가자들이 가장 많이 한 말입니다.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-8 sm:mb-10">
+          <div className="flex gap-4 overflow-x-auto pb-4 -mx-5 px-5 sm:-mx-0 sm:px-0 hide-scrollbar" style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
             {[
               {
                 quote: "같이 팀원처럼 고민해줘서 좋았어요. 혼자 하면 '이게 맞나?' 싶은 순간이 계속 오는데, 옆에서 같이 봐주는 사람이 있으니까 확신이 생기더라고요.",
@@ -339,23 +339,26 @@ const FoundersLabLanding = () => {
                 tag: "6년차 개발자"
               },
             ].map((item, idx) => (
-              <div key={idx} className="p-5 sm:p-6 rounded-xl relative" style={{ backgroundColor: '#fff' }}>
-                <div className="absolute -top-1 left-4 text-3xl" style={{ color: '#FF6B35', opacity: 0.3 }}>"</div>
-                <p className="text-sm sm:text-base leading-relaxed mb-4 pt-2" style={{ color: '#333' }}>
-                  {item.quote}
-                </p>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#FDF6E9', color: '#FF6B35' }}>
+              <div key={idx} className="flex-shrink-0 w-[280px] sm:w-[320px] p-6 rounded-2xl relative flex flex-col justify-between" style={{ backgroundColor: '#fff', scrollSnapAlign: 'start', boxShadow: '0 2px 16px rgba(0,0,0,0.06)' }}>
+                <div>
+                  <div className="text-3xl mb-3" style={{ color: '#FF6B35', opacity: 0.25 }}>"</div>
+                  <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#333' }}>
+                    {item.quote}
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 mt-5 pt-4" style={{ borderTop: '1px solid #f0f0f0' }}>
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style={{ backgroundColor: '#FF6B35', color: '#fff' }}>
                     {item.author.charAt(0)}
                   </div>
                   <div>
-                    <p className="text-sm font-medium" style={{ color: '#1a1a1a' }}>{item.author}</p>
+                    <p className="text-sm font-bold" style={{ color: '#1a1a1a' }}>{item.author}</p>
                     <p className="text-xs" style={{ color: '#888' }}>{item.tag}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+          <p className="text-xs mt-3 sm:hidden" style={{ color: '#aaa' }}>← 밀어서 더 보기</p>
 
           {/* 창업지원사업 선정 케이스 */}
           <div className="p-5 sm:p-6 rounded-xl" style={{ backgroundColor: '#1a1a1a' }}>
@@ -378,26 +381,23 @@ const FoundersLabLanding = () => {
       </section>
 
       {/* Target Audience */}
-      <section className="py-16 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#fff' }}>
-        <div className="max-w-4xl mx-auto">
-          <div className="p-5 sm:p-8 rounded-2xl" style={{ backgroundColor: '#FDF6E9', border: '2px solid #F0E6D3' }}>
-            <div className="flex items-center gap-2 mb-5 sm:mb-6">
-              <span className="text-xl sm:text-2xl">👤</span>
-              <h3 className="text-lg sm:text-xl font-bold" style={{ color: '#1a1a1a' }}>이런 분들을 위한 프로그램입니다.</h3>
-            </div>
-            <div className="space-y-4">
-              {targets.map((item, idx) => (
-                <div key={idx} className="flex gap-2 sm:gap-3">
-                  <span className="flex-shrink-0" style={{ color: '#FF6B35' }}>✓</span>
-                  <div>
-                    <span className="font-bold text-sm sm:text-base" style={{ color: '#1a1a1a' }}>{item.title}</span>
-                    <p className="text-xs sm:text-sm mt-0.5 sm:mt-1" style={{ color: '#666', whiteSpace: 'pre-line' }}>{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+      <section className="py-16 sm:py-24" style={{ backgroundColor: '#fff' }}>
+        <div className="max-w-4xl mx-auto px-5 sm:px-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1a1a1a' }}>이런 분들을 위한 프로그램입니다.</h2>
+          <p className="text-base sm:text-lg mb-8 sm:mb-10" style={{ color: '#555' }}>하나라도 해당되면, 파운더스랩이 도움이 됩니다.</p>
         </div>
+        <div className="flex gap-4 overflow-x-auto pb-4 px-5 sm:px-6 max-w-4xl mx-auto hide-scrollbar" style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
+          {targets.map((item, idx) => (
+            <div key={idx} className="flex-shrink-0 w-[240px] sm:w-[220px] p-5 rounded-2xl flex flex-col" style={{ backgroundColor: '#FDF6E9', scrollSnapAlign: 'start' }}>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4" style={{ backgroundColor: '#fff' }}>
+                {item.icon}
+              </div>
+              <h4 className="text-sm sm:text-base font-bold mb-2 leading-snug" style={{ color: '#1a1a1a' }}>{item.title}</h4>
+              <p className="text-xs leading-relaxed" style={{ color: '#666', whiteSpace: 'pre-line' }}>{item.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-xs mt-3 px-5 sm:hidden" style={{ color: '#aaa' }}>← 밀어서 더 보기</p>
       </section>
 
       {/* What We Do - 12 Week Roadmap */}
