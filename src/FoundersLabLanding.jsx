@@ -118,7 +118,7 @@ const FoundersLabLanding = () => {
     { q: "아직 아이디어가 없어도 참가할 수 있나요?", a: "가능합니다. 1주차 오프라인 인트로세션에서 \"내가 뭘 하려고 하는지\" 방향을 잡는 것부터 시작합니다. 1기 운영 경험상, 아이디어가 없는 상태에서 시작해도 인트로세션과 초반 과제를 통해 자연스럽게 정리되는 경우가 많았습니다." },
     { q: "직장 다니면서 병행할 수 있나요?", a: "주 3-5시간 정도면 충분합니다. 2주에 1회 모더레이팅 세션 참여 + 사전 녹화 강의 시청 + 과제 수행 정도입니다. 1기 대비 세션 빈도를 줄이고, 자율 실행 시간을 늘렸기 때문에 직장인도 충분히 병행할 수 있습니다." },
     { q: "환불 정책은 어떻게 되나요?", a: "시작 후 1주일 이내 100% 환불 가능합니다. 1주차 오프라인 세션을 경험해보고, 맞지 않으면 전액 돌려드립니다. 1주일 이후에는 환불이 어렵습니다." },
-    { q: "1기와 뭐가 달라졌나요?", a: "1기 운영 경험을 바탕으로 전면 개편했습니다. 일방향 강의를 줄이고 모더레이팅 중심으로 바꿨고, 오프라인 인트로세션을 추가했습니다. 6주차 1:1 세션 이후 만든다/알린다 트랙으로 나뉘어 각자 수준에 맞는 결과물을 만들 수 있도록 설계했습니다." },
+    { q: "1기와 뭐가 달라졌나요?", a: "1기 운영 경험을 바탕으로 전면 개편했습니다. 일방향 강의를 줄이고 모더레이팅 중심으로 바꿨고, 오프라인 인트로세션을 추가했습니다. 6주차 1:1 세션 이후 MAKE/SELL 트랙으로 나뉘어 각자 수준에 맞는 결과물을 만들 수 있도록 설계했습니다." },
     { q: "오프라인 모임은 필수인가요?", a: "1주차 인트로세션과 12주차 최종 발표는 오프라인으로 진행됩니다. 이 두 세션은 가능한 한 참석을 권장합니다. 나머지 세션은 온라인으로 진행되어 서울 외 지역 거주자도 참여 가능합니다." },
     { q: "해외에서 참가해도 되나요?", a: "온라인 세션 참여는 가능합니다. 다만 1주차, 12주차 오프라인 세션은 서울에서 진행되므로 참석이 어려울 수 있습니다. 시차가 맞으면 온라인 세션은 문제없이 참여 가능합니다." }
   ];
@@ -138,19 +138,19 @@ const FoundersLabLanding = () => {
   ];
 
   const phase1 = [
-    ["1주차 (7/4~)", "오프라인 인트로세션", "강의 1 (생방) + AI 환경 세팅 + 방향 정렬 (\"나는 뭘 하려는가\")", "🏢 오프라인 필수"],
-    ["2주차", "고객 발견", "숙제 1 진행 — 페르소나 기반 고객 인터뷰", ""],
-    ["3주차", "모더레이팅 체크업", "숙제 1 완성 점검 + 그룹 토론", "💬 온라인 모더레이팅"],
-    ["4~5주차", "사업계획 구체화", "AI 강의 2 (생방 or 녹화 시청) + 사업계획 완성", "🎙 강의 2"],
+    ["1주차 (7/4~)", "오프라인 인트로세션", "라이브 세션 + AI 환경 세팅 + 방향 정렬 (\"나는 뭘 하려는가\")", "🏢 오프라인 필수"],
+    ["2주차", "고객 발견", "과제 진행 — 페르소나 기반 고객 인터뷰", ""],
+    ["3주차", "모더레이팅 체크업", "과제 점검 + 그룹 토론", "💬 온라인 모더레이팅"],
+    ["4~5주차", "사업계획 구체화", "AI 활용 세션 (생방 or 녹화 시청) + 사업계획 완성", "🎙 라이브 세션"],
   ];
 
   const phase2 = [
-    ["6주차", "1:1 세션", "AI 감각 + 사업계획 기반 \"무엇을 만들 것인지\" 확정", "🎯 1:1 온라인"],
-    ["7주차", "개인 발표", "만들 것 or 알릴 것 — 액션 플랜 발표", "💬 온라인 발표"],
+    ["6주차", "1:1 세션", "사업계획 기반 MAKE vs. SELL 트랙 확정", "🎯 1:1 온라인"],
+    ["7주차", "개인 발표", "선택 트랙 기반 액션 플랜 발표", "💬 온라인 발표"],
   ];
 
   const phase3 = [
-    ["8~9주차", "만들기 / 알리기 실행", "트랙별 실행 시작 + 그룹별 중간 진도 체크 세션 1회", "📋 중간 체크"],
+    ["8~9주차", "MAKE / SELL 실행", "트랙별 실행 시작 + 그룹별 중간 진도 체크 세션 1회", "📋 중간 체크"],
     ["10주차", "진행 피드백", "1:1 진행 상황 피드백 — 방향 수정 or ongoing 피드백", "🎯 1:1 온라인"],
     ["11주차", "시장 테스트", "시장 반응 확인 + 성과 지표 정리", ""],
     ["12주차", "최종 발표", "12주 성과 발표 및 마무리", "🎉 오프라인 데모데이"],
@@ -356,16 +356,16 @@ const FoundersLabLanding = () => {
             <div className="flex flex-wrap items-start gap-3 p-4 sm:p-5 rounded-xl mb-8 sm:mb-10" style={{ backgroundColor: '#FDF6E9', border: '1px solid #F0E6D3' }}>
               <span className="text-lg">🔀</span>
               <div>
-                <p className="text-sm sm:text-base font-bold mb-1" style={{ color: '#1a1a1a' }}>6주차 이후, 두 가지 트랙으로 나뉩니다</p>
-                <p className="text-xs sm:text-sm" style={{ color: '#555' }}><strong>만든다</strong> — 디지털 프로덕트 또는 서비스를 직접 제작하는 분</p>
-                <p className="text-xs sm:text-sm" style={{ color: '#555' }}><strong>알린다</strong> — SNS 채널 운영, 개인 브랜딩을 먼저 구축하는 분</p>
-                <p className="text-xs mt-1.5" style={{ color: '#888' }}>각자 수준에 맞는 결과물을 선택할 수 있도록 1:1 세션에서 함께 설계합니다.</p>
+                <p className="text-sm sm:text-base font-bold mb-2" style={{ color: '#1a1a1a' }}>6주차 이후, 두 가지 트랙으로 나뉩니다</p>
+                <p className="text-xs sm:text-sm mb-1" style={{ color: '#555' }}><strong>MAKE 트랙</strong> — 제품/서비스를 직접 만들어보는 트랙. 디지털 프로덕트, MVP 등을 직접 제작합니다.</p>
+                <p className="text-xs sm:text-sm" style={{ color: '#555' }}><strong>SELL 트랙</strong> — 내 아이디어의 시장성을 검증하는 트랙. SNS 채널을 통해 콘텐츠를 알리고 반응을 확인합니다.</p>
+                <p className="text-xs mt-2" style={{ color: '#888' }}>6주차 1:1 세션에서 각자 상황에 맞는 트랙을 함께 설계합니다.</p>
               </div>
             </div>
 
             {[
               { phase: "Phase 1", title: "방향 정렬 + 고객 발견 (1~5주)", desc: "\"나는 뭘 하려는가\", \"누가 내 고객인가\"를 정리합니다.", data: phase1, result: "이 단계를 거치면 내 아이디어의 방향이 잡히고, 고객이 실제로 겪는 문제를 인터뷰를 통해 확인하게 됩니다." },
-              { phase: "Phase 2", title: "결정 + 액션 플랜 (6~7주)", desc: "\"무엇을 만들 것인지\" 또는 \"무엇을 알릴 것인지\"를 확정합니다.", data: phase2, result: "이 단계를 거치면 만든다/알린다 트랙이 확정되고, 나머지 기간의 구체적인 액션 아이템이 정해집니다." },
+              { phase: "Phase 2", title: "결정 + 액션 플랜 (6~7주)", desc: "MAKE vs. SELL — 어떤 트랙으로 실행할지 확정합니다.", data: phase2, result: "이 단계를 거치면 MAKE/SELL 트랙이 확정되고, 나머지 기간의 구체적인 액션 아이템이 정해집니다." },
               { phase: "Phase 3", title: "실행 + 시장 테스트 (8~12주)", desc: "직접 만들고, 알리고, 시장 반응을 확인합니다.", data: phase3, result: "이 단계를 거치면 실제 결과물과 시장 반응 데이터를 손에 쥐게 됩니다." }
             ].map((p, pi) => (
               <div key={pi} className="mb-8 sm:mb-10">
@@ -448,12 +448,12 @@ const FoundersLabLanding = () => {
 
             <div className="p-5 sm:p-6 rounded-xl" style={{ backgroundColor: '#FDF6E9' }}>
               <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base" style={{ color: '#1a1a1a' }}>6주차 이후 트랙별 그룹</h4>
-              <p className="text-xs sm:text-sm mb-2" style={{ color: '#555' }}>6주차 1:1 세션 이후, 만든다/알린다 트랙별로 나뉘어 운영됩니다.</p>
+              <p className="text-xs sm:text-sm mb-2" style={{ color: '#555' }}>6주차 1:1 세션 이후, MAKE/SELL 트랙별로 나뉘어 운영됩니다.</p>
               <ul className="text-xs sm:text-sm space-y-1" style={{ color: '#666' }}>
-                <li>• <strong>만든다</strong> — 디지털 프로덕트 or 서비스 직접 제작</li>
-                <li>• <strong>알린다</strong> — SNS 채널 운영, 개인 브랜딩 구축</li>
+                <li>• <strong>MAKE 트랙</strong> — 제품/서비스를 직접 만들어 시장에 내놓기</li>
+                <li>• <strong>SELL 트랙</strong> — SNS 콘텐츠로 아이디어의 시장성 검증하기</li>
               </ul>
-              <p className="text-xs sm:text-sm mt-3" style={{ color: '#333' }}>같은 방향의 참여자들끼리 <strong>더 깊이 있는 피드백</strong>을 주고받습니다.</p>
+              <p className="text-xs sm:text-sm mt-3" style={{ color: '#333' }}>같은 트랙의 참여자들끼리 <strong>더 깊이 있는 피드백</strong>을 주고받습니다.</p>
             </div>
           </div>
 
@@ -484,7 +484,7 @@ const FoundersLabLanding = () => {
             </div>
             <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: '#555' }}>그룹 세션만으로는 부족합니다. <strong>개인별 상황에 맞춘 1:1 세션</strong>으로 방향을 잡아드립니다.</p>
             <div className="space-y-3 sm:space-y-4">
-              {[{ week: "3주차", title: "모더레이팅 체크업", desc: "숙제 1 완성 점검 + 그룹 피드백" }, { week: "6주차", title: "1:1 세션", desc: "\"무엇을 만들 것인지\" 확정 + 트랙 분화" }, { week: "8~9주차", title: "중간 진도 체크", desc: "그룹별 실행 상황 점검" }, { week: "10주차", title: "1:1 피드백", desc: "진행 상황 기반 방향 수정 or 가속" }, { week: "12주차", title: "최종 발표", desc: "12주 성과 발표 + 마무리" }].map((item, idx) => (
+              {[{ week: "3주차", title: "모더레이팅 체크업", desc: "과제 점검 + 그룹 피드백" }, { week: "6주차", title: "1:1 세션", desc: "MAKE vs. SELL 트랙 확정" }, { week: "8~9주차", title: "중간 진도 체크", desc: "트랙별 실행 상황 점검" }, { week: "10주차", title: "1:1 피드백", desc: "진행 상황 기반 방향 수정 or 가속" }, { week: "12주차", title: "최종 발표", desc: "12주 성과 발표 + 마무리" }].map((item, idx) => (
                 <div key={idx} className="flex flex-wrap items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg" style={{ backgroundColor: '#F5F5F5' }}>
                   <span className="px-2.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium" style={{ backgroundColor: '#FF6B35', color: '#fff' }}>{item.week}</span>
                   <div className="flex-1 min-w-0">
