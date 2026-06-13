@@ -30,7 +30,7 @@ async function sendSms(phone, name) {
     message: {
       to: cleanPhone,
       from: process.env.SOLAPI_SENDER || '05058165980',
-      text: `[파운더스랩] ${name}님, 2기 신청 감사합니다!\n\n접수가 완료되었으며, 1-2일 내로 상세 안내를 드리겠습니다.\n\n궁금한 점은 이 번호로 문의해 주세요.`,
+      text: `[파운더스랩] ${name}님, 2기 신청 감사합니다!\n\n접수가 완료되었습니다.\n\n▶ 결제 링크\nhttps://smartstore.naver.com/sheventures/products/13632230349\n\n결제 완료 후 1-2일 내로 상세 안내를 드리겠습니다.\n궁금한 점은 이 번호로 문의해 주세요.`,
     },
   };
 

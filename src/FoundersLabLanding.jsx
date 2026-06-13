@@ -746,7 +746,20 @@ const FoundersLabLanding = () => {
             <div className="text-center p-8 sm:p-12 rounded-2xl" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
               <div className="text-4xl sm:text-5xl mb-4">🎉</div>
               <h3 className="text-xl sm:text-2xl font-bold mb-4" style={{ color: '#fff' }}>신청이 완료되었습니다!</h3>
-              <p className="text-sm sm:text-base" style={{ color: 'rgba(255,255,255,0.7)' }}>입력하신 연락처로 1-2일 내로 안내드리겠습니다.</p>
+              <p className="text-sm sm:text-base mb-6" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                아래 버튼을 눌러 결제를 진행해주세요.<br/>
+                결제 완료 후 1-2일 내로 상세 안내를 드리겠습니다.
+              </p>
+              <a
+                href="https://smartstore.naver.com/sheventures/products/13632230349"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-bold transition-transform hover:scale-105"
+                style={{ backgroundColor: '#FF6B35', color: '#fff', textDecoration: 'none' }}
+              >
+                결제하러 가기 →
+              </a>
+              <p className="text-xs mt-4" style={{ color: 'rgba(255,255,255,0.5)' }}>결제 링크가 문자로도 발송되었습니다.</p>
             </div>
           ) : (
             <div className="p-5 sm:p-8 rounded-2xl" style={{ backgroundColor: '#fff' }}>
