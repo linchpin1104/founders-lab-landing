@@ -60,29 +60,51 @@ export default async function handler(req, res) {
     const d = req.body;
 
     // ── 1. Notion DB 저장 ──
-    const response = await fetch('https://api.notion.com/v1/pages', {
+    const baseProperties = {
+      '이름':       { title:  [{ text: { content: d.name        || '' } }] },
+      '연락처':     { rich_text: [{ text: { content: d.phone      || '' } }] },
+      '이메일':     { rich_text: [{ text: { content: d.email      || '' } }] },
+      '직무':       { rich_text: [{ text: { content: d.job        || '' } }] },
+      '연차':       { rich_text: [{ text: { content: d.years      || '' } }] },
+      '아이디어유무': { rich_text: [{ text: { content: d.hasIdea   || '' } }] },
+      '아이디어설명': { rich_text: [{ text: { content: d.ideaDesc  || '' } }] },
+      '참가목표':   { rich_text: [{ text: { content: d.goal       || '' } }] },
+      '유입경로':   { rich_text: [{ text: { content: d.heardFrom  || '' } }] },
+      '기수':       { rich_text: [{ text: { content: '2기' } }] },
+    };
+
+    const notionHeaders = {
+      'Authorization': `Bearer ${process.env.NOTION_TOKEN}`,
+      'Content-Type': 'application/json',
+      'Notion-Version': '2022-06-28',
+    };
+
+    let response = await fetch('https://api.notion.com/v1/pages', {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.NOTION_TOKEN}`,
-        'Content-Type': 'application/json',
-        'Notion-Version': '2022-06-28',
-      },
+      headers: notionHeaders,
       body: JSON.stringify({
         parent: { database_id: process.env.NOTION_DATABASE_ID },
-        properties: {
-          '이름':       { title:  [{ text: { content: d.name        || '' } }] },
-          '연락처':     { rich_text: [{ text: { content: d.phone      || '' } }] },
-          '이메일':     { rich_text: [{ text: { content: d.email      || '' } }] },
-          '직무':       { rich_text: [{ text: { content: d.job        || '' } }] },
-          '연차':       { rich_text: [{ text: { content: d.years      || '' } }] },
-          '아이디어유무': { rich_text: [{ text: { content: d.hasIdea   || '' } }] },
-          '아이디어설명': { rich_text: [{ text: { content: d.ideaDesc  || '' } }] },
-          '참가목표':   { rich_text: [{ text: { content: d.goal       || '' } }] },
-          '유입경로':   { rich_text: [{ text: { content: d.heardFrom  || '' } }] },
-          '기수':       { rich_text: [{ text: { content: '2기' } }] },
-        },
+        properties: baseProperties,
       }),
     });
+
+    // 기수 컬럼이 없으면 기수 빼고 재시도
+    if (!response.ok) {
+      const errResult = await response.json();
+      const errMsg = JSON.stringify(errResult);
+      if (errMsg.includes('기수')) {
+        console.warn('기수 컬럼 없음 — 기수 제외 후 재시도');
+        const { '기수': _, ...propertiesWithout } = baseProperties;
+        response = await fetch('https://api.notion.com/v1/pages', {
+          method: 'POST',
+          headers: notionHeaders,
+          body: JSON.stringify({
+            parent: { database_id: process.env.NOTION_DATABASE_ID },
+            properties: propertiesWithout,
+          }),
+        });
+      }
+    }
 
     const result = await response.json();
     if (!response.ok) throw new Error(JSON.stringify(result));
