@@ -116,9 +116,9 @@ const FoundersLabLanding = () => {
 
   const faqs = [
     { q: "아직 아이디어가 없어도 참가할 수 있나요?", a: "가능합니다. 1주차 오프라인 인트로세션에서 \"내가 뭘 하려고 하는지\" 방향을 잡는 것부터 시작합니다. 1기 운영 경험상, 아이디어가 없는 상태에서 시작해도 인트로세션과 초반 과제를 통해 자연스럽게 정리되는 경우가 많았습니다." },
-    { q: "직장 다니면서 병행할 수 있나요?", a: "주 3-5시간 정도면 충분합니다. 2주에 1회 모더레이팅 세션 참여 + 사전 녹화 강의 시청 + 과제 수행 정도입니다. 1기 대비 세션 빈도를 줄이고, 자율 실행 시간을 늘렸기 때문에 직장인도 충분히 병행할 수 있습니다." },
+    { q: "직장 다니면서 병행할 수 있나요?", a: "주 3-5시간 정도면 충분합니다. 2주에 1회 그룹 코칭 세션 참여 + 사전 녹화 강의 시청 + 과제 수행 정도입니다. 1기 대비 세션 빈도를 줄이고, 자율 실행 시간을 늘렸기 때문에 직장인도 충분히 병행할 수 있습니다." },
     { q: "환불 정책은 어떻게 되나요?", a: "시작 후 1주일 이내 100% 환불 가능합니다. 1주차 오프라인 세션을 경험해보고, 맞지 않으면 전액 돌려드립니다. 1주일 이후에는 환불이 어렵습니다." },
-    { q: "1기와 뭐가 달라졌나요?", a: "1기 운영 경험을 바탕으로 전면 개편했습니다. 일방향 강의를 줄이고 모더레이팅 중심으로 바꿨고, 오프라인 인트로세션을 추가했습니다. 6주차 1:1 세션 이후 MAKE/SELL 트랙으로 나뉘어 각자 수준에 맞는 결과물을 만들 수 있도록 설계했습니다." },
+    { q: "1기와 뭐가 달라졌나요?", a: "1기 운영 경험을 바탕으로 전면 개편했습니다. 일방향 강의를 줄이고 그룹 코칭 중심으로 바꿨고, 오프라인 인트로세션을 추가했습니다. 6주차 1:1 세션 이후 MAKE/SELL 트랙으로 나뉘어 각자 수준에 맞는 결과물을 만들 수 있도록 설계했습니다." },
     { q: "오프라인 모임은 필수인가요?", a: "1주차 인트로세션과 12주차 최종 발표는 오프라인으로 진행됩니다. 이 두 세션은 가능한 한 참석을 권장합니다. 나머지 세션은 온라인으로 진행되어 서울 외 지역 거주자도 참여 가능합니다." },
     { q: "해외에서 참가해도 되나요?", a: "온라인 세션 참여는 가능합니다. 다만 1주차, 12주차 오프라인 세션은 서울에서 진행되므로 참석이 어려울 수 있습니다. 시차가 맞으면 온라인 세션은 문제없이 참여 가능합니다." }
   ];
@@ -140,7 +140,7 @@ const FoundersLabLanding = () => {
   const phase1 = [
     ["1주차 (7/11~)", "오프라인 인트로세션", "라이브 세션 + AI 환경 세팅 + 방향 정렬 (\"나는 뭘 하려는가\")", "🏢 오프라인 필수"],
     ["2주차", "고객 발견", "과제 진행 — 페르소나 기반 고객 인터뷰", ""],
-    ["3주차", "모더레이팅 체크업", "과제 점검 + 그룹 토론", "💬 온라인 모더레이팅"],
+    ["3주차", "그룹 코칭 체크업", "과제 점검 + 그룹 토론", "💬 온라인 그룹 코칭"],
     ["4~5주차", "사업계획 구체화", "AI 활용 세션 (생방 or 녹화 시청) + 사업계획 완성", "🎙 라이브 세션"],
   ];
 
@@ -174,7 +174,7 @@ const FoundersLabLanding = () => {
     "12주 주차별 가이드 + 실습 과제",
     "라이브 강의 2회 + 녹화 강의 아카이브",
     "1:1 세션 2회 (6주차, 10주차)",
-    "모더레이팅 그룹 세션",
+    "그룹 코칭 세션",
     "퇴사계산기, AI프롬프트북, 세일즈카피템플릿 등 툴킷",
     "오프라인 인트로세션 + 최종 발표 (데모데이)",
     "수료 후에도 접근 가능한 자료 아카이브"
@@ -401,7 +401,7 @@ const FoundersLabLanding = () => {
               </div>
               <div className="flex-1">
                 <p className="text-base sm:text-lg font-bold mb-1" style={{ color: '#fff' }}>
-                  1기 참가자 중 창업지원사업 선정 케이스 발생
+                  1기 멤버 중 창업지원사업 선정자 2명 배출
                 </p>
                 <p className="text-xs sm:text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
                   파운더스랩 과정에서 정리한 사업계획과 검증 데이터로 정부 창업지원사업에 선정된 참가자가 있습니다.<br/>
@@ -438,7 +438,7 @@ const FoundersLabLanding = () => {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style={{ color: '#1a1a1a' }}>Founders Lab은 무엇을 하나요?</h2>
           <p className="text-base sm:text-lg mb-4" style={{ color: '#555' }}>아이디어 정리부터 실행까지, <strong>12주 동안 직접 만들고 시장에 던져보는 프로그램</strong>입니다.</p>
-          <p className="text-base sm:text-lg mb-12 sm:mb-16" style={{ color: '#555' }}>강의는 최소화하고, 모더레이팅과 1:1 세션 중심으로 각자의 속도에 맞춰 실행합니다.</p>
+          <p className="text-base sm:text-lg mb-12 sm:mb-16" style={{ color: '#555' }}>강의는 최소화하고, 그룹 코칭과 1:1 세션 중심으로 각자의 속도에 맞춰 실행합니다.</p>
 
           {/* 하나 - Roadmap */}
           <div className="mb-16 sm:mb-20">
@@ -452,8 +452,8 @@ const FoundersLabLanding = () => {
             <div className="flex flex-wrap items-start gap-3 p-4 sm:p-5 rounded-xl mb-4 sm:mb-5" style={{ backgroundColor: '#FDF6E9', border: '1px solid #F0E6D3' }}>
               <span className="text-lg">🎙</span>
               <div>
-                <p className="text-sm sm:text-base font-bold mb-1" style={{ color: '#1a1a1a' }}>라이브 강의 2회 + 모더레이팅 세션 중심 운영</p>
-                <p className="text-xs sm:text-sm" style={{ color: '#555' }}>기존 녹화본은 사전 시청 과제로 배포하고, 세션 당일은 모더레이팅만 진행합니다.</p>
+                <p className="text-sm sm:text-base font-bold mb-1" style={{ color: '#1a1a1a' }}>라이브 강의 2회 + 그룹 코칭 세션 중심 운영</p>
+                <p className="text-xs sm:text-sm" style={{ color: '#555' }}>기존 녹화본은 사전 시청 과제로 배포하고, 세션 당일은 그룹 코칭만 진행합니다.</p>
                 <p className="text-xs mt-1.5" style={{ color: '#888' }}>📹 강의 녹화본 제공 · *프로그램은 진행에 따라 일부 변경될 수 있습니다.</p>
               </div>
             </div>
@@ -538,11 +538,11 @@ const FoundersLabLanding = () => {
             ))}
           </div>
 
-          {/* 둘 - 모더레이팅 그룹 */}
+          {/* 둘 - 그룹 코칭 */}
           <div className="mb-16 sm:mb-20">
             <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 mb-6 sm:mb-8">
               <span className="text-2xl sm:text-3xl font-bold" style={{ color: '#FF6B35' }}>둘.</span>
-              <h3 className="text-xl sm:text-2xl font-bold" style={{ color: '#1a1a1a' }}>모더레이팅 세션으로 함께합니다.</h3>
+              <h3 className="text-xl sm:text-2xl font-bold" style={{ color: '#1a1a1a' }}>그룹 코칭 세션으로 함께합니다.</h3>
             </div>
             <p className="text-base sm:text-lg mb-5 sm:mb-6" style={{ color: '#555' }}>혼자 하면 3가지 문제가 생깁니다.</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8 sm:mb-10">
@@ -554,10 +554,10 @@ const FoundersLabLanding = () => {
                 </div>
               ))}
             </div>
-            <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: '#333' }}>그래서 <strong>강의 대신 모더레이팅 방식</strong>으로 함께 정리합니다.</p>
+            <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: '#333' }}>그래서 <strong>강의 대신 그룹 코칭 방식</strong>으로 함께 정리합니다.</p>
 
             <div className="p-5 sm:p-6 rounded-xl mb-4" style={{ backgroundColor: '#FDF6E9' }}>
-              <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base" style={{ color: '#1a1a1a' }}>모더레이팅 세션</h4>
+              <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base" style={{ color: '#1a1a1a' }}>그룹 코칭 세션</h4>
               <p className="text-xs sm:text-sm mb-2" style={{ color: '#555' }}>2주에 1회, 그룹 토론 형태로 진행합니다.</p>
               <ul className="text-xs sm:text-sm space-y-1" style={{ color: '#666' }}>
                 <li>• 돌아가며 각자 진행 상황 공유</li>
@@ -605,7 +605,7 @@ const FoundersLabLanding = () => {
             </div>
             <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: '#555' }}>그룹 세션만으로는 부족합니다. <strong>개인별 상황에 맞춘 1:1 세션</strong>으로 방향을 잡아드립니다.</p>
             <div className="space-y-3 sm:space-y-4">
-              {[{ week: "3주차", title: "모더레이팅 체크업", desc: "과제 점검 + 그룹 피드백" }, { week: "6주차", title: "1:1 세션", desc: "MAKE vs. SELL 트랙 확정" }, { week: "8~9주차", title: "중간 진도 체크", desc: "트랙별 실행 상황 점검" }, { week: "10주차", title: "1:1 피드백", desc: "진행 상황 기반 방향 수정 or 가속" }, { week: "12주차", title: "최종 발표", desc: "12주 성과 발표 + 마무리" }].map((item, idx) => (
+              {[{ week: "3주차", title: "그룹 코칭 체크업", desc: "과제 점검 + 그룹 피드백" }, { week: "6주차", title: "1:1 세션", desc: "MAKE vs. SELL 트랙 확정" }, { week: "8~9주차", title: "중간 진도 체크", desc: "트랙별 실행 상황 점검" }, { week: "10주차", title: "1:1 피드백", desc: "진행 상황 기반 방향 수정 or 가속" }, { week: "12주차", title: "최종 발표", desc: "12주 성과 발표 + 마무리" }].map((item, idx) => (
                 <div key={idx} className="flex flex-wrap items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg" style={{ backgroundColor: '#F5F5F5' }}>
                   <span className="px-2.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium" style={{ backgroundColor: '#FF6B35', color: '#fff' }}>{item.week}</span>
                   <div className="flex-1 min-w-0">
@@ -716,6 +716,7 @@ const FoundersLabLanding = () => {
               <div className="flex items-center justify-center gap-2 mb-1">
                 <span className="px-2 py-0.5 rounded text-xs font-bold" style={{ backgroundColor: '#FF6B35', color: '#fff' }}>2기</span>
               </div>
+              <p className="text-sm line-through mb-1" style={{ color: '#999' }}>3,000,000원</p>
               <p className="text-3xl sm:text-4xl font-bold" style={{ color: '#1a1a1a' }}>490,000원</p>
               <p className="text-xs sm:text-sm mt-1" style={{ color: '#666' }}>모집기간: 6월 13일 ~ 7월 7일</p>
             </div>
@@ -728,7 +729,7 @@ const FoundersLabLanding = () => {
             <div className="p-4 rounded-lg" style={{ backgroundColor: 'rgba(255,107,53,0.1)' }}>
               <p className="text-xs sm:text-sm font-medium mb-2" style={{ color: '#1a1a1a' }}>왜 이 가격인가요?</p>
               <p className="text-xs sm:text-sm" style={{ color: '#555' }}>
-                창업 강의 하나에 50-100만원. 코칭 프로그램은 200-500만원. Founders Lab은 12주간 1:1 세션, 모더레이팅, 오프라인 세션까지 포함하여 <strong>월 16만원 수준</strong>으로 체계적인 검증 과정을 경험할 수 있습니다. 퇴사 후 실패해서 잃는 비용을 생각하면, <strong>퇴사 전에 검증하는 것</strong>이 훨씬 합리적입니다.
+                창업 강의 하나에 50-100만원. 코칭 프로그램은 200-500만원. Founders Lab은 12주간 1:1 세션, 그룹 코칭, 오프라인 세션까지 포함하여 <strong>월 16만원 수준</strong>으로 체계적인 검증 과정을 경험할 수 있습니다. 퇴사 후 실패해서 잃는 비용을 생각하면, <strong>퇴사 전에 검증하는 것</strong>이 훨씬 합리적입니다.
               </p>
             </div>
           </div>
